@@ -5,7 +5,7 @@ import { CLIENT_LOGOS } from '../constants';
 const Logos: React.FC = () => {
   const { t } = useTranslation();
   return (
-    <section className="py-24 bg-deep-space overflow-hidden border-t border-white/5">
+    <section className="py-24 bg-[#000000] overflow-hidden border-t border-white/5">
       <div className="mb-12 text-center">
         <h3 className="text-xs tracking-[0.3em] uppercase text-neon-lime font-display">{t('logos.trusted_by')}</h3>
       </div>

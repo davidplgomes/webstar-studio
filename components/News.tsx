@@ -7,7 +7,7 @@ import { NEWS, fadeInUp, staggerContainer } from '../constants';
 const News: React.FC = () => {
   const { t } = useTranslation();
   return (
-    <section id="agency" className="py-24 md:py-32 bg-deep-space text-soft-white border-t border-white/5">
+    <section id="agency" className="py-24 md:py-32 bg-[#000000] text-soft-white border-t border-white/5">
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-16">
           <h2 className="text-sm tracking-[0.3em] uppercase font-display text-neon-lime">{t('news.title')}</h2>
@@ -26,14 +26,14 @@ const News: React.FC = () => {
               transition={{ delay: index * 0.1 }}
               className="group cursor-pointer"
             >
-              <div className="aspect-[3/4] overflow-hidden mb-6 border border-white/5">
+              <div className="aspect-[3/4] overflow-hidden mb-6 border border-white/10">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 grayscale group-hover:grayscale-0 brightness-75 group-hover:brightness-100"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 opacity-40 group-hover:opacity-80 grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-100"
                 />
               </div>
-              <span className="text-xs tracking-widest text-neon-lime mb-2 block">{item.date}</span>
+              <span className="text-xs tracking-widest text-neon-lime/60 mb-2 block group-hover:text-neon-lime transition-colors">{item.date}</span>
               <h3 className="text-xl font-light font-display group-hover:text-neon-lime transition-colors leading-relaxed">{item.title}</h3>
             </motion.div>
           ))}

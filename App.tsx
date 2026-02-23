@@ -10,8 +10,7 @@ import News from './components/News';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
 import CustomCursor from './components/CustomCursor';
-
-import ParticleGrid from './components/ParticleGrid'; // NEW
+import TechnicalBackground from './components/TechnicalBackground';
 
 import Lenis from 'lenis';
 
@@ -41,10 +40,10 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-deep-space min-h-screen selection:bg-neon-lime selection:text-deep-space cursor-none relative">
-      <ParticleGrid /> {/* Background */}
+    <div className="bg-transparent min-h-screen selection:bg-neon-lime selection:text-deep-space cursor-none relative">
+      <TechnicalBackground />
 
-      <div className="relative z-10"> {/* Content Wrapper */}
+      <div id="main-scroll-container" className="relative z-10 w-full"> {/* Content Wrapper */}
         <Preloader />
         <CustomCursor />
 

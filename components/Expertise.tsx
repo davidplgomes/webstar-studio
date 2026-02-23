@@ -6,7 +6,7 @@ import { EXPERTISE, fadeInUp, staggerContainer } from '../constants';
 const Expertise: React.FC = () => {
   const { t } = useTranslation();
   return (
-    <section id="expertise" className="py-24 md:py-32 bg-deep-space text-soft-white border-t border-white/5">
+    <section id="services" className="py-24 md:py-32 bg-transparent text-soft-white border-t border-white/5 relative z-10">
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <motion.div
           initial="initial"
@@ -23,15 +23,15 @@ const Expertise: React.FC = () => {
               <motion.div
                 key={item.id}
                 variants={fadeInUp}
-                className="group border border-white/5 p-8 hover:bg-white/5 transition-all duration-500 hover:border-white/10"
+                className="group p-8 glass-technical transition-all duration-500"
               >
-                <span className="block text-4xl font-light mb-6 text-neon-lime/50 font-display">0{index + 1}</span>
+                <span className="block text-4xl font-light mb-6 text-neon-lime/40 font-display transition-colors group-hover:text-neon-lime">0{index + 1}</span>
                 <h3 className="text-xl tracking-widest mb-6 font-display group-hover:text-neon-lime transition-colors">
                   {t(`expertise.list.e${index + 1}.title`)}
                 </h3>
                 <ul className="space-y-3">
                   {(t(`expertise.list.e${index + 1}.points`, { returnObjects: true }) as string[]).map((point, i) => (
-                    <li key={i} className="text-sm font-light text-lavender-mist tracking-wide group-hover:text-soft-white transition-colors">
+                    <li key={i} className="text-sm font-light text-white/50 tracking-wide group-hover:text-soft-white transition-colors">
                       {point}
                     </li>
                   ))}

@@ -30,11 +30,11 @@
             'mega': '0.5em',
           },
           colors: {
-            'neon-lime': '#C9FF00',
-            'deep-space': '#030303',
-            'soft-white': '#FAFAFA',
-            'lavender-mist': '#A1A1AA',
-            'deep-teal': '#18181B',
+            'neon-lime': '#cfff28',
+            'deep-space': '#000000',
+            'soft-white': '#f3f8f0',
+            'lavender-mist': '#d2c5ff',
+            'deep-teal': '#345c59',
           }
         }
       }
@@ -71,10 +71,10 @@
     }
 
     body {
-      background-color: #030303;
-      color: #FAFAFA;
+      background-color: #000000;
+      color: #f3f8f0;
       overflow-x: hidden;
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Outfit', sans-serif;
     }
 
     h1,
@@ -83,12 +83,11 @@
     h4,
     h5,
     h6 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Raleway', sans-serif;
     }
 
     .font-editorial {
       font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
     }
 
     ::-webkit-scrollbar {
@@ -105,7 +104,34 @@
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #C9FF00;
+      background: #cfff28;
+    }
+
+    /* Used for text-outline over 3D backgrounds */
+    .stroke-text-lime {
+      -webkit-text-stroke: 2px #cfff28;
+      color: transparent;
+    }
+
+    .glass-technical {
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 8px 32px 0 rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(207, 255, 40, 0.03);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-technical:hover {
+      background: rgba(0, 0, 0, 0.55);
+      border-color: rgba(207, 255, 40, 0.2);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+        0 8px 32px 0 rgba(0, 0, 0, 0.8),
+        0 0 60px rgba(207, 255, 40, 0.08);
     }
 
     .noise-overlay {
@@ -116,7 +142,8 @@
       height: 100%;
       pointer-events: none;
       z-index: 9999;
-      opacity: 0.07;
+      opacity: 0.04;
+      /* Microscopic opacity for clean aesthetic */
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
   </style>

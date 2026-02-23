@@ -58,10 +58,10 @@ export const CITIES = ['PARIS', 'SHANGHAI', 'LONDON', 'NEW YORK', 'VENICE', 'MON
 // Animation Variants
 export const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
   }
 };
 

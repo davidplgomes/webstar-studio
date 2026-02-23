@@ -59,38 +59,38 @@ const Footer: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-deep-space text-soft-white overflow-hidden border-t border-white/5">
+    <footer className="bg-[#000000] text-soft-white overflow-hidden border-t border-white/5">
       {/* City Marquee with Velocity */}
       <VelocityMarquee />
 
       <div className="px-6 md:px-12 py-24 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="col-span-1 md:col-span-2">
           <h2 className="text-2xl font-bold tracking-widest mb-8 font-display text-neon-lime">WEBSTAR STUDIO</h2>
-          <p className="text-3xl font-editorial italic text-lavender-mist max-w-md leading-tight">
-            "Crafting digital experiences that transcend boundaries and redefine perception."
+          <p className="text-3xl font-editorial italic text-white/40 max-w-md leading-tight group">
+            "Crafting digital experiences that <span className="group-hover:text-neon-lime transition-colors">transcend boundaries</span> and redefine perception."
           </p>
         </div>
 
         <div className="col-span-1">
           <h4 className="text-xs uppercase tracking-widest text-neon-lime mb-6">{t('footer.social')}</h4>
-          <ul className="space-y-4 font-light text-lavender-mist">
-            <li className="hover:text-white transition-colors cursor-pointer">Instagram</li>
-            <li className="hover:text-white transition-colors cursor-pointer">Twitter</li>
-            <li className="hover:text-white transition-colors cursor-pointer">LinkedIn</li>
-            <li className="hover:text-white transition-colors cursor-pointer">Behance</li>
+          <ul className="space-y-4 font-light text-white/40">
+            <li className="hover:text-neon-lime transition-colors cursor-pointer">Instagram</li>
+            <li className="hover:text-neon-lime transition-colors cursor-pointer">Twitter</li>
+            <li className="hover:text-neon-lime transition-colors cursor-pointer">LinkedIn</li>
+            <li className="hover:text-neon-lime transition-colors cursor-pointer">Behance</li>
           </ul>
         </div>
 
         <div className="col-span-1">
           <h4 className="text-xs uppercase tracking-widest text-neon-lime mb-6">{t('footer.legal')}</h4>
-          <ul className="space-y-4 font-light text-lavender-mist">
-            <li className="hover:text-white transition-colors cursor-pointer">{t('footer.privacy')}</li>
-            <li className="hover:text-white transition-colors cursor-pointer">{t('footer.terms')}</li>
+          <ul className="space-y-4 font-light text-white/40">
+            <li className="hover:text-neon-lime transition-colors cursor-pointer">{t('footer.privacy')}</li>
+            <li className="hover:text-neon-lime transition-colors cursor-pointer">{t('footer.terms')}</li>
           </ul>
         </div>
       </div>
 
-      <div className="px-6 md:px-12 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-white/30 tracking-widest uppercase">
+      <div className="px-6 md:px-12 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-white/10 tracking-widest uppercase">
         <p>{t('footer.copyright')}</p>
         <p>EST. 2024</p>
       </div>
