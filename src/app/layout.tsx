@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Space_Grotesk, Syne, Cormorant_Garamond, Oswald, Bebas_Neue } from 'next/font/google';
 import SmoothScrollProvider from '@/providers/SmoothScrollProvider';
+import I18nInit from '@/components/I18nInit';
+import LiquidGlassFilter from '@/components/LiquidGlassFilter';
 import './globals.css';
 
 const oswald = Oswald({
@@ -55,6 +57,8 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${syne.variable} ${cormorant.variable} ${oswald.variable} ${bebasNeue.variable}`}
     >
       <body className="font-sans">
+        <I18nInit />
+        <LiquidGlassFilter />
         <SmoothScrollProvider>
           {children}
         </SmoothScrollProvider>

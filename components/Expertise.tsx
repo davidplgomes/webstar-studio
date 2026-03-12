@@ -43,17 +43,17 @@ const services = [
 
 const Expertise: React.FC = () => {
   return (
-    <section className="relative w-full flex font-sans">
+    <section id="expertise" className="relative w-full flex font-sans">
 
       {/* LEFT PANEL: Sticky & Transparent — globe shows through */}
       <div className="hidden md:flex w-1/2 sticky top-0 h-screen flex-col justify-center items-center bg-transparent">
-        <span className="text-[10px] tracking-[0.5em] font-mono text-white/15 uppercase">
-          OFFER
+          <span className="text-[10px] tracking-[0.5em] font-mono text-white/15 uppercase">
+          SERVICES
         </span>
       </div>
 
       {/* RIGHT PANEL: Individual glass cards over transparent background */}
-      <div className="w-full md:w-1/2 relative flex flex-col gap-6 p-6">
+      <div className="w-full md:w-1/2 relative flex flex-col gap-6 px-6 pt-6 pb-0 md:pl-0 overflow-x-clip">
         
         {/* Ambient Glowing Diagonal Beam (same as menu) */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -64,7 +64,7 @@ const Expertise: React.FC = () => {
         {services.map((service, index) => (
           <div
             key={service.id}
-            className="relative min-h-screen ios-glass rounded-[6px] p-12 md:p-16 lg:p-20 flex flex-col justify-between group"
+            className="relative w-full min-h-screen ios-glass rounded-[22px] p-12 md:p-16 lg:p-20 flex flex-col justify-between group"
           >
             {/* Top Row */}
             <div className="flex justify-between items-start w-full">

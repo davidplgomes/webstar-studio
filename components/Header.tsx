@@ -1,5 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useScroll } from 'framer-motion';
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+
+import { HOME_STORY_ANCHORS, PRIMARY_NAV_ITEMS } from '@/data/navigation';
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -7,92 +14,108 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
+  const pathname = usePathname();
   const { scrollY } = useScroll();
-  const [isScrolled, setIsScrolled] = useState(false);
+  const { t, i18n } = useTranslation();
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
-  useEffect(() => {
-    return scrollY.onChange((latest) => {
-      setIsScrolled(latest > 50);
-    });
-  }, [scrollY]);
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    setIsScrolled(latest > 40);
+  });
+
+  const currentLanguage = i18n.language || 'en';
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-40 flex flex-col transition-all duration-500 bg-black/20 backdrop-blur-xl text-white/80 font-sans uppercase text-[10px] tracking-widest`}
+      className={`fixed left-0 right-0 top-0 z-40 flex flex-col text-[10px] uppercase tracking-widest text-white/80 transition-all duration-500 ${
+        isScrolled ? 'bg-black/65 backdrop-blur-2xl' : 'bg-black/20 backdrop-blur-xl'
+      }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
     >
-      {/* Top Banner Row */}
-      <div className="w-full h-10 border-b border-white/5 flex items-center justify-center bg-white/[0.03]">
-        <div className="flex items-center gap-2 hover:text-white cursor-pointer transition-colors text-[#88d388]">
+      <div className="flex h-10 w-full items-center justify-center border-b border-white/5 bg-white/[0.03] px-4">
+        <p className="flex items-center gap-2 text-[#88d388]">
           <span className="text-[12px]">✧</span>
-          <span className="normal-case tracking-normal">Post-quantum cryptography: Gartner® recommendations available with NEVERHACK</span>
-          <span className="ml-2 font-medium">Access the report → →</span>
-        </div>
+          <span className="normal-case tracking-normal text-white/70">{t('header.banner.message')}</span>
+          <span className="font-medium">{t('header.banner.cta')}</span>
+        </p>
       </div>
 
-      {/* Main Navigation Row */}
-      <div className="flex items-center h-[72px] w-full border-b border-white/5">
-        
-        {/* Left Spacing / Optional Hamburger Area */}
-        <div className="w-16 md:w-24 h-full border-r border-white/5 flex items-center justify-center shrink-0">
-          {/* Mobile Hamburger (Hidden on Desktop) */}
+      <div className="flex h-[72px] w-full items-center border-b border-white/5">
+        <div className="flex h-full w-16 shrink-0 items-center justify-center border-r border-white/5 md:w-24">
           <button
+            aria-label={t('header.menuToggle')}
             onClick={onMenuClick}
-            className={`lg:hidden group flex flex-col items-center justify-center gap-1.5 focus:outline-none`}
+            className="group flex flex-col items-center justify-center gap-1.5 focus:outline-none lg:hidden"
           >
-           {!isMenuOpen && (
+            {!isMenuOpen && (
               <>
-                <span className={`block w-6 h-0.5 transition-colors duration-300 bg-white group-hover:bg-neon-lime`}></span>
-                <span className={`block w-6 h-0.5 transition-colors duration-300 bg-white group-hover:bg-neon-lime`}></span>
+                <span className="block h-0.5 w-6 bg-white transition-colors duration-300 group-hover:bg-neon-lime" />
+                <span className="block h-0.5 w-6 bg-white transition-colors duration-300 group-hover:bg-neon-lime" />
               </>
             )}
           </button>
         </div>
 
-        {/* Logo */}
-        <div className="px-8 md:px-12 h-full border-r border-white/5 flex items-center shrink-0">
-          <a href="#" className={`text-lg md:text-xl font-bold tracking-[0.1em] font-display transition-colors duration-300 text-white`}>
+        <div className="flex h-full shrink-0 items-center border-r border-white/5 px-8 md:px-12">
+          <Link href="/" className="font-display text-lg font-bold tracking-[0.1em] text-white transition-colors duration-300 md:text-xl">
             WEBSTAR
-          </a>
+          </Link>
         </div>
 
-        {/* Use Cases */}
-        <div className="px-8 h-full border-r border-white/5 hidden lg:flex items-center hover:text-white transition-colors cursor-pointer shrink-0 group">
-          <span className="flex items-center gap-3">
-            USE CASES 
-            <span className="opacity-50 text-[14px] leading-none mb-1 group-hover:opacity-100 transition-opacity">⠿</span>
-          </span>
+        <div className="hidden h-full shrink-0 items-center border-r border-white/5 px-8 text-white/70 transition-colors hover:text-white lg:flex">
+          <Link href="/#projects" className="flex items-center gap-3">
+            {t('nav.story.label')}
+            <span className="mb-1 text-[14px] leading-none opacity-50 transition-opacity hover:opacity-100">⠿</span>
+          </Link>
         </div>
 
-        {/* Center Links (Flex-1 allows it to fill available space) */}
-        <nav className="flex-1 hidden lg:flex items-center h-full px-12 gap-12">
-          <a href="#home" className="hover:text-white transition-colors">HOME</a>
-          <a href="#offers" className="hover:text-white transition-colors flex items-start">OFFERS</a>
-          <a href="#about" className="hover:text-white transition-colors">ABOUT</a>
-          <a href="#careers" className="hover:text-white transition-colors">CAREERS</a>
-          <a href="#jobs" className="hover:text-white transition-colors">JOBS</a>
-          <a href="#news" className="hover:text-white transition-colors">NEWS</a>
+        <nav className="hidden h-full flex-1 items-center gap-10 px-10 lg:flex xl:gap-12">
+          {PRIMARY_NAV_ITEMS.map((item) => {
+            const isActive = item.href === '/'
+              ? pathname === '/'
+              : pathname.startsWith(item.href);
+
+            return (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={`transition-colors ${isActive ? 'text-neon-lime' : 'text-white/70 hover:text-white'}`}
+              >
+                {t(item.labelKey)}
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* Spacer for Mobile to push edge items right */}
-        <div className="flex-1 lg:hidden border-r border-white/5 h-full" />
+        <div className="h-full flex-1 border-r border-white/5 lg:hidden" />
 
-        {/* Right: Language */}
-        <div className="w-16 md:w-24 h-full border-l border-white/5 flex items-center justify-center hover:text-white transition-colors cursor-pointer shrink-0">
-          EN
+        <div className="flex h-full w-16 items-center justify-center border-l border-white/5 md:w-24">
+          <button
+            onClick={() => i18n.changeLanguage(currentLanguage.startsWith('pt') ? 'es' : currentLanguage.startsWith('es') ? 'en' : 'pt')}
+            className="transition-colors hover:text-white"
+          >
+            {currentLanguage.slice(0, 2).toUpperCase()}
+          </button>
         </div>
 
-        {/* Right: Contact */}
-        <div className="w-24 md:w-32 h-full border-l border-r border-white/5 hidden md:flex items-center justify-center hover:text-white transition-colors cursor-pointer shrink-0">
-          <a href="#contact">CONTACT</a>
+        <div className="hidden h-full w-24 items-center justify-center border-x border-white/5 transition-colors hover:text-white md:flex md:w-32">
+          <Link href="/contact">{t('nav.contact')}</Link>
         </div>
-        
-        {/* Right Spacing equivalent to Left Spacing */}
-        <div className="w-16 md:w-24 h-full hidden lg:block shrink-0"></div>
 
+        <div className="hidden h-full w-16 shrink-0 lg:block md:w-24" />
       </div>
+
+      {pathname === '/' ? (
+        <div className="hidden w-full items-center justify-center gap-8 border-b border-white/5 bg-black/30 px-8 py-2 text-[9px] tracking-[0.28em] text-white/45 lg:flex">
+          {HOME_STORY_ANCHORS.map((item) => (
+            <Link key={item.id} href={item.href} className="transition-colors hover:text-neon-lime">
+              {t(item.labelKey)}
+            </Link>
+          ))}
+        </div>
+      ) : null}
     </motion.header>
   );
 };

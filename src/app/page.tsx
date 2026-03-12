@@ -1,75 +1,44 @@
 'use client';
 
-import { useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import BackgroundCanvas from '@/components/BackgroundCanvas';
-import Header from '../../components/Header';
-import Navigation from '../../components/Navigation';
-import CustomCursor from '../../components/CustomCursor';
+import SiteShell from '@/components/layout/SiteShell';
 import Preloader from '../../components/Preloader';
 import Hero from '../../components/Hero';
+import GlobeSection from '@/components/GlobeSection';
 import Intro from '../../components/Intro';
 import SolutionsSection from '@/components/SolutionsSection';
 import Expertise from '../../components/Expertise';
 import HorizontalScroll from '../../components/HorizontalScroll';
 import Projects from '../../components/Projects';
 import Logos from '../../components/Logos';
-import GlobeSection from '@/components/GlobeSection';
 import Footer from '../../components/Footer';
+import HomeRouteBand from '@/components/pages/HomeRouteBand';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
-    <main className="relative bg-[#000000] min-h-screen selection:bg-neon-lime selection:text-deep-space">
-      
-      {/* Universal Navigation System - Highest Z-Index */}
-      <div className="relative z-[9999]">
-        <Header 
-          isMenuOpen={isMenuOpen} 
-          onMenuClick={() => setIsMenuOpen(!isMenuOpen)} 
-        />
-        <Navigation 
-          isOpen={isMenuOpen} 
-          onClose={() => setIsMenuOpen(false)} 
-        />
-      </div>
+    <SiteShell withBackground withCursor>
+      <Preloader />
 
-      {/* 3D Master Layer: Persistent R3F Canvas */}
-      <div className="fixed top-0 left-0 w-full h-screen z-0 pointer-events-none">
-        <BackgroundCanvas />
-      </div>
-
-      {/* UI Layer: Scrollable HTML content */}
-      <div className="relative z-10 w-full font-sans overflow-x-hidden">
-        
-        <Preloader />
-        <CustomCursor />
-
-        {/* Core Introductory Block */}
+      <div className="relative z-10 w-full overflow-x-hidden font-sans">
         <Hero />
-        
-        {/* The Cinematic Globe Expansion happens during this segment */}
         <GlobeSection />
-        
-        {/* Narrative Flow */}
         <Intro />
 
-        {/* Transition Breather Space */}
-        <div className="relative w-full h-[50vh] bg-gradient-to-b from-[#000000] to-transparent z-10 pointer-events-none" />
+        <div className="pointer-events-none relative z-10 h-[50vh] w-full bg-gradient-to-b from-[#000000] to-transparent" />
 
         <SolutionsSection />
         <Expertise />
         <HorizontalScroll />
         <Projects />
         <Logos />
-        
+
+        <HomeRouteBand />
         <Footer />
       </div>
-    </main>
+    </SiteShell>
   );
 }

@@ -23,3 +23,32 @@ export interface NavLink {
   label: string;
   href: string;
 }
+
+export type SupportedLocale = 'en' | 'pt' | 'es';
+
+export interface LocalizedValue<T> {
+  en: T;
+  pt: T;
+  es: T;
+}
+
+export interface NavItem {
+  id: string;
+  labelKey: string;
+  href: string;
+  hash?: string;
+}
+
+export interface NewsArticle {
+  slug: string;
+  publishedAt: string;
+  author: string;
+  coverImage: string;
+  category: LocalizedValue<string>;
+  title: LocalizedValue<string>;
+  excerpt: LocalizedValue<string>;
+  readTime: LocalizedValue<string>;
+  tags: LocalizedValue<string[]>;
+  content: LocalizedValue<string[]>;
+  relatedSlugs: string[];
+}

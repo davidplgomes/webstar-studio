@@ -99,7 +99,7 @@ const SolutionsSection: React.FC = () => {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="relative w-full h-screen bg-black overflow-hidden font-sans">
+    <section id="services-overview" ref={sectionRef} className="relative w-full h-screen bg-black overflow-hidden font-sans">
       
       {/* Background Layer - Always active and covering the section */}
       <div className="absolute inset-0 z-0 bg-black pointer-events-none">

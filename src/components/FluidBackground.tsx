@@ -57,13 +57,17 @@ const FluidShaderMaterial = {
 
       vec3 colorBlack = vec3(0.0);
       vec3 colorDeep = vec3(0.05, 0.2, 0.02);
-      vec3 colorNeon = vec3(0.81, 1.0, 0.16); // #cfff28
+      vec3 colorNeon = vec3(0.34, 0.5, 0.08); // Muted dark-green highlight
 
       // Gradient mask so it's mainly at bottom right
       float mask = pow(st.x, 1.5) * pow(1.0 - st.y, 2.0); 
 
-      vec3 finalColor = mix(colorBlack, colorDeep, smoothstep(0.2, 0.6, n * mask * 2.5));
-      finalColor = mix(finalColor, colorNeon, smoothstep(0.5, 0.9, n * mask * 2.0));
+      float deepBlend = smoothstep(0.26, 0.66, n * mask * 2.0);
+      float neonBlendRaw = smoothstep(0.86, 1.0, n * mask * 1.1);
+      float neonBlend = pow(neonBlendRaw, 2.0) * 0.28;
+
+      vec3 finalColor = mix(colorBlack, colorDeep, deepBlend);
+      finalColor = mix(finalColor, colorNeon, neonBlend);
 
       gl_FragColor = vec4(finalColor, 1.0);
     }

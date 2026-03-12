@@ -1,83 +1,422 @@
 {
-    "nav": {
-        "projects": "Proyectos",
-        "expertise": "Experiencia",
-        "agency": "Agencia",
-        "contact": "Contacto"
-    },
-    "hero": {
-        "title": "WEBSTAR",
-        "subtitle": "Lanzando tu negocio al Éxito",
-        "scroll": "Desplazarse",
-        "card": {
-            "label": "MISIÓN DESTACADA",
-            "title": "LUMINOSO",
-            "desc": "Explora la última instalación en la intersección de luz y materia."
-        }
-    },
-    "intro": {
-        "line1": "DAMOS FORMA DOAR",
-        "line2": "EL FUTURO",
-        "desc1": "WEBSTAR es un estudio digital dedicado a la innovación y el diseño espacial. Unimos la visión artística y la realidad técnica, transformando conceptos ambiciosos en experiencias tangibles.",
-        "desc2": "Desde productos digitales monumentales hasta instalaciones inmersivas, nuestro equipo orquesta cada detalle con precisión, pasión y una búsqueda implacable de la perfección estética."
-    },
-    "expertise": {
-        "title": "Nuestra Experiencia",
-        "list": {
-            "e1": {
-                "title": "CONCEPCIÓN",
-                "points": [
-                    "Dirección Artística",
-                    "Estudios Técnicos",
-                    "Prototipado"
-                ]
-            },
-            "e2": {
-                "title": "PRODUCCIÓN",
-                "points": [
-                    "Abastecimiento de Materiales",
-                    "Artesanía",
-                    "Control de Calidad"
-                ]
-            },
-            "e3": {
-                "title": "INSTALACIÓN",
-                "points": [
-                    "Logística",
-                    "Montaje en Sitio",
-                    "Normas de Seguridad"
-                ]
-            },
-            "e4": {
-                "title": "MANTENIMIENTO",
-                "points": [
-                    "Monitoreo",
-                    "Restauración",
-                    "Reciclaje"
-                ]
-            }
-        }
-    },
-    "projects": {
-        "title": "Trabajos Seleccionados",
-        "view_all": "Ver Todos los Proyectos"
-    },
-    "logos": {
-        "trusted_by": "Con la Confianza de"
-    },
-    "news": {
-        "title": "DIARIO",
-        "read_all": "Leer Todo"
-    },
-    "footer": {
-        "address_label": "Dirección",
-        "contact_label": "Contacto",
-        "legal_label": "Legal",
-        "legal": {
-            "privacy": "Política de Privacidad",
-            "terms": "Términos de Uso",
-            "credits": "Créditos"
-        },
-        "copyright": "© {{year}} WEBSTAR STUDIO. TODOS LOS DERECHOS RESERVADOS."
+  "nav": {
+    "home": "Home",
+    "services": "Servicios",
+    "about": "Sobre",
+    "careers": "Carreras",
+    "news": "News",
+    "contact": "Contacto",
+    "story": {
+      "label": "Mapa Narrativo",
+      "globe": "Globo",
+      "intro": "Intro",
+      "services": "Flujo de Servicios",
+      "projects": "Proyectos"
     }
+  },
+  "header": {
+    "menuToggle": "Abrir menú",
+    "banner": {
+      "message": "Sistemas digitales diseñados para velocidad, claridad y crecimiento.",
+      "cta": "Explorar capacidades"
+    }
+  },
+  "navigation": {
+    "close": "Cerrar menú",
+    "contactLabel": "Contacto",
+    "contactBlock": {
+      "line1": "Avenida Boa Viagem, 410",
+      "line2": "Recife, Brasil",
+      "line3": "+55 81 90000-0000"
+    }
+  },
+  "hero": {
+    "title": "WEBSTAR",
+    "subtitle": "Lanzando tu negocio al Éxito",
+    "scroll": "Desplazarse",
+    "card": {
+      "label": "MISIÓN DESTACADA",
+      "title": "LUMINOSO",
+      "desc": "Explora la última instalación en la intersección de luz y materia."
+    }
+  },
+  "intro": {
+    "line1": "DAMOS FORMA",
+    "line2": "AL FUTURO",
+    "desc1": "WEBSTAR es un estudio digital dedicado a la innovación y el diseño espacial. Unimos visión artística y realidad técnica para transformar conceptos ambiciosos en experiencias tangibles.",
+    "desc2": "Desde productos digitales monumentales hasta instalaciones inmersivas, nuestro equipo orquesta cada detalle con precisión, pasión y una búsqueda constante de excelencia estética."
+  },
+  "expertise": {
+    "title": "Nuestra Experiencia",
+    "list": {
+      "e1": {
+        "title": "CONCEPCIÓN",
+        "points": [
+          "Dirección Artística",
+          "Estudios Técnicos",
+          "Prototipado"
+        ]
+      },
+      "e2": {
+        "title": "PRODUCCIÓN",
+        "points": [
+          "Abastecimiento de Materiales",
+          "Artesanía",
+          "Control de Calidad"
+        ]
+      },
+      "e3": {
+        "title": "INSTALACIÓN",
+        "points": [
+          "Logística",
+          "Montaje en Sitio",
+          "Normas de Seguridad"
+        ]
+      },
+      "e4": {
+        "title": "MANTENIMIENTO",
+        "points": [
+          "Monitoreo",
+          "Restauración",
+          "Reciclaje"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "title": "Trabajos Seleccionados",
+    "view_all": "Ver Todos los Proyectos"
+  },
+  "logos": {
+    "trusted_by": "Con la Confianza de"
+  },
+  "news": {
+    "title": "DIARIO",
+    "read_all": "Leer Todo"
+  },
+  "homeRoutes": {
+    "eyebrow": "Explorador de Rutas",
+    "description": "Navega por cada dominio sin romper el lenguaje visual. Cada ruta presenta su propia arquitectura narrativa."
+  },
+  "services": {
+    "hero": {
+      "eyebrow": "Servicios",
+      "title": "Sistemas construidos para tracción",
+      "description": "Desde dirección estratégica hasta arquitectura de lanzamiento, nuestra stack alinea expresión de marca, rendimiento de producto y resiliencia operativa."
+    },
+    "useCases": {
+      "title": "Atlas de casos",
+      "subtitle": "Programas específicos por contexto, nunca paquetes genéricos.",
+      "items": [
+        {
+          "title": "Aceleración de lanzamiento",
+          "description": "Reducimos ciclos de concepto a mercado con coreografía clara de producto y contenido.",
+          "metric": "Sprint Stack"
+        },
+        {
+          "title": "Modernización de experiencia",
+          "description": "Refactorizamos puntos heredados en interfaces coherentes con mejoras medibles de UX.",
+          "metric": "Interface Renewal"
+        },
+        {
+          "title": "Sistemas de conversión",
+          "description": "Diseñamos mecánicas de funnel que guían intención y reducen fricción en cada etapa.",
+          "metric": "Growth Engine"
+        },
+        {
+          "title": "Entrega security-first",
+          "description": "Integramos compliance y hardening directamente en los flujos de entrega de producto.",
+          "metric": "Trust Layer"
+        }
+      ]
+    },
+    "capabilities": {
+      "eyebrow": "Matriz de capacidades",
+      "title": "Módulos especializados",
+      "description": "Cada módulo puede funcionar solo o dentro de una pista integrada de entrega.",
+      "items": [
+        {
+          "title": "Estrategia y marco",
+          "value": "Blueprint norte",
+          "detail": "Arquitectura de negocio, posicionamiento y secuencia de roadmap conectados a resultados."
+        },
+        {
+          "title": "Design systems",
+          "value": "Lenguaje de interfaz",
+          "detail": "Ecosistemas de componentes y lógica de motion para experiencias premium."
+        },
+        {
+          "title": "Ingeniería",
+          "value": "Implementación escalable",
+          "detail": "Construcciones front-end y full-stack con presupuesto de rendimiento y patrones resilientes."
+        },
+        {
+          "title": "Enablement operativo",
+          "value": "Aceleración de equipos",
+          "detail": "Plantillas de gobernanza, playbooks y workflows para mantener alineación post-lanzamiento."
+        }
+      ]
+    },
+    "delivery": {
+      "title": "Metodología de entrega",
+      "items": [
+        {
+          "phase": "Fase 01",
+          "title": "Descubrimiento de señales",
+          "description": "Mapeamos metas de producto, presión de mercado y comportamiento de canal en un solo marco estratégico."
+        },
+        {
+          "phase": "Fase 02",
+          "title": "Prototipado sistémico",
+          "description": "Test rápido de conceptos sobre lógica de interfaz, mensaje y rutas de conversión."
+        },
+        {
+          "phase": "Fase 03",
+          "title": "Construcción de producción",
+          "description": "Ejecución cross-funcional con puertas de QA, instrumentación analítica y preparación de lanzamiento."
+        },
+        {
+          "phase": "Fase 04",
+          "title": "Loop de iteración",
+          "description": "Ciclos post-lanzamiento orientados a impacto de negocio medible y escala."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Listo para activar",
+      "title": "Construye tu próximo sistema de crecimiento",
+      "button": "Iniciar conversación"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "Sobre",
+      "title": "Un estudio creado para definir dirección",
+      "description": "Combinamos rigor estratégico con precisión creativa para ayudar a marcas ambiciosas a navegar la complejidad digital con confianza."
+    },
+    "mission": {
+      "title": "Misión",
+      "description": "Traducir complejidad en sistemas claros que desbloquean crecimiento y valor de marca a largo plazo."
+    },
+    "vision": {
+      "title": "Visión",
+      "description": "Diseñar entornos digitales donde ambición, usabilidad y rendimiento convivan."
+    },
+    "promise": {
+      "title": "Promesa",
+      "description": "Entrega de alta confianza con resultados medibles sin diluir identidad de marca."
+    },
+    "timeline": {
+      "title": "Trayectoria",
+      "items": [
+        {
+          "year": "2020",
+          "title": "Fundación del estudio",
+          "description": "Webstar nació para unir estrategia, diseño e ingeniería bajo un solo modelo operativo."
+        },
+        {
+          "year": "2022",
+          "title": "Expansión regional",
+          "description": "Escalamos a operaciones multi-mercado con foco en lanzamientos y reposicionamiento."
+        },
+        {
+          "year": "2024",
+          "title": "Era de sistemas cinemáticos",
+          "description": "Introdujimos sistemas narrativos que combinan lenguaje visual y arquitectura de rendimiento."
+        }
+      ]
+    },
+    "metrics": {
+      "title": "Señales",
+      "items": [
+        {
+          "label": "Proyectos lanzados",
+          "value": "84+"
+        },
+        {
+          "label": "Aumento promedio de engagement",
+          "value": "+37%"
+        },
+        {
+          "label": "Mercados atendidos",
+          "value": "11"
+        },
+        {
+          "label": "Especialistas senior",
+          "value": "22"
+        }
+      ]
+    },
+    "presence": {
+      "title": "Presencia global",
+      "items": [
+        {
+          "city": "Recife",
+          "detail": "Hub de liderazgo estratégico y producto."
+        },
+        {
+          "city": "Sao Paulo",
+          "detail": "Alianzas enterprise y operaciones de crecimiento."
+        },
+        {
+          "city": "Lisboa",
+          "detail": "Design systems y soporte de expansión internacional."
+        },
+        {
+          "city": "Células remotas",
+          "detail": "Colaboradores especializados distribuidos por proyecto."
+        }
+      ]
+    },
+    "leadership": {
+      "title": "Foco de liderazgo",
+      "items": [
+        {
+          "title": "Ejecución multidisciplinaria",
+          "value": "Estrategia, diseño e ingeniería alineados en un único flujo."
+        },
+        {
+          "title": "Velocidad de decisión",
+          "value": "Ciclos cortos, ownership claro y priorización transparente."
+        },
+        {
+          "title": "Gobernanza de calidad",
+          "value": "Estándares sólidos de rendimiento, accesibilidad y coherencia visual."
+        }
+      ]
+    }
+  },
+  "careers": {
+    "hero": {
+      "eyebrow": "Carreras",
+      "title": "Construye trabajo que mueva el mercado",
+      "description": "Estamos formando un equipo de estrategas, diseñadores e ingenieros que quieren crear sistemas ambiciosos sin sacrificar craft."
+    },
+    "manifesto": {
+      "eyebrow": "Manifiesto de cultura",
+      "text": "Estándares altos. Ownership claro. Curiosidad constante. Construimos en público, aprendemos rápido y llevamos cada entrega por encima de la base esperada."
+    },
+    "benefits": {
+      "title": "Arquitectura de beneficios",
+      "subtitle": "Estructurada para rendimiento sostenible y profundidad creativa.",
+      "items": [
+        {
+          "title": "Tiempo de craft profundo",
+          "detail": "Ventanas dedicadas para exploración, experimentación y refinamiento de sistemas."
+        },
+        {
+          "title": "Rutas de crecimiento",
+          "detail": "Frameworks de progresión con mentoría, peer review y planes trimestrales."
+        },
+        {
+          "title": "Flexibilidad híbrida",
+          "detail": "Operación en hubs o remoto con ritmos claros de colaboración y async."
+        },
+        {
+          "title": "Salud y bienestar",
+          "detail": "Programas pensados para desempeño a largo plazo, no ciclos de burnout."
+        }
+      ]
+    },
+    "process": {
+      "title": "Secuencia de contratación",
+      "items": [
+        {
+          "step": "Paso 01",
+          "title": "Revisión de contexto",
+          "description": "Conversación breve sobre tu trayectoria, fortalezas y principios de trabajo."
+        },
+        {
+          "step": "Paso 02",
+          "title": "Desafío práctico",
+          "description": "Ejercicio con alcance realista que refleja restricciones de proyecto y colaboración."
+        },
+        {
+          "step": "Paso 03",
+          "title": "Calibración con equipo",
+          "description": "Alineación mutua de expectativas, impacto y dirección de crecimiento."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Red de talento",
+      "title": "Comparte tu perfil",
+      "button": "Enviar información"
+    }
+  },
+  "newsPage": {
+    "hero": {
+      "eyebrow": "Newsroom",
+      "title": "Señales, lanzamientos y notas estratégicas",
+      "description": "Un flujo editorial continuo sobre lo que construimos, lo que aprendemos y lo que cambia en la ejecución digital."
+    },
+    "featured": {
+      "readStory": "Leer historia"
+    },
+    "filters": {
+      "label": "Riel de categorías",
+      "all": "Todos"
+    },
+    "card": {
+      "read": "Leer"
+    }
+  },
+  "newsArticle": {
+    "back": "Volver a news",
+    "tags": "Señales de tema",
+    "relatedTitle": "Historias relacionadas",
+    "readMore": "Leer más"
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contacto",
+      "title": "Inicia una conversación estratégica",
+      "description": "Comparte tu contexto, restricciones y ambición. Mapeamos una dirección y sugerimos el modelo de colaboración más relevante."
+    },
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "company": "Empresa",
+      "message": "Contexto del proyecto",
+      "submit": "Enviar solicitud",
+      "sending": "Enviando",
+      "success": "Mensaje recibido. Este formulario usa un handler mock por ahora y será conectado a API después.",
+      "mockNotice": "Flujo solo frontend por ahora. La integración API se conectará en este submit handler.",
+      "errors": {
+        "name": "Por favor, ingresa tu nombre.",
+        "email": "Por favor, ingresa un email válido.",
+        "message": "Agrega al menos 15 caracteres de contexto."
+      }
+    },
+    "channels": {
+      "email": {
+        "title": "Canal de email",
+        "detail": "hello@webstar-studio.com"
+      },
+      "phone": {
+        "title": "Línea directa",
+        "detail": "+55 81 90000-0000"
+      },
+      "reply": {
+        "title": "Ventana de respuesta",
+        "detail": "Respuesta inicial en hasta 24 horas hábiles."
+      }
+    },
+    "trust": {
+      "eyebrow": "Señal de confianza",
+      "description": "Tu contexto es revisado por un miembro senior. Sin loop automatizado de ventas."
+    }
+  },
+  "footer": {
+    "address_label": "Dirección",
+    "contact_label": "Contacto",
+    "socialLabel": "Social",
+    "legalLabel": "Explorar",
+    "legal": {
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Uso",
+      "credits": "Créditos"
+    },
+    "copyright": "© {{year}} WEBSTAR STUDIO. TODOS LOS DERECHOS RESERVADOS."
+  }
 }

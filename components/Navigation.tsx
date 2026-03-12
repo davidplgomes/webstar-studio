@@ -1,8 +1,13 @@
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { X, Instagram, Linkedin, Twitter } from 'lucide-react';
-import { NAV_LINKS } from '../constants';
+
+import { HOME_STORY_ANCHORS, PRIMARY_NAV_ITEMS } from '@/data/navigation';
 
 interface NavigationProps {
   isOpen: boolean;
@@ -10,16 +15,18 @@ interface NavigationProps {
 }
 
 const Navigation: React.FC<NavigationProps> = ({ isOpen, onClose }) => {
+  const pathname = usePathname();
   const { t, i18n } = useTranslation();
+
   const menuVariants = {
     closed: {
-      x: "100%",
-      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const }
+      x: '100%',
+      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const },
     },
     open: {
       x: 0,
-      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const }
-    }
+      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const },
+    },
   };
 
   const linkVariants = {
@@ -27,9 +34,11 @@ const Navigation: React.FC<NavigationProps> = ({ isOpen, onClose }) => {
     open: (i: number) => ({
       x: 0,
       opacity: 1,
-      transition: { delay: 0.3 + (i * 0.1), duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }
-    })
+      transition: { delay: 0.2 + i * 0.08, duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    }),
   };
+
+  const currentLanguage = i18n.language || 'en';
 
   return (
     <AnimatePresence>
@@ -39,86 +48,97 @@ const Navigation: React.FC<NavigationProps> = ({ isOpen, onClose }) => {
           animate="open"
           exit="closed"
           variants={menuVariants}
-          className="fixed inset-0 z-50 bg-[#000000]/70 backdrop-blur-[48px] saturate-[180%] text-white flex flex-col md:flex-row border border-white/[0.08] overflow-hidden"
+          className="fixed inset-0 z-50 flex flex-col overflow-hidden border border-white/[0.08] bg-black/80 text-white backdrop-blur-[48px] saturate-[180%] md:flex-row"
         >
-          {/* Ambient Glowing Diagonal Beam */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] md:w-[50vw] h-[150vh] rotate-[32deg] bg-gradient-to-br from-[#cfff28]/15 via-[#345c59]/15 to-transparent blur-[120px] pointer-events-none -z-10" />
+          <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[150vh] w-[150vw] -translate-x-1/2 -translate-y-1/2 rotate-[32deg] bg-gradient-to-br from-[#cfff28]/15 via-[#345c59]/15 to-transparent blur-[120px] md:w-[50vw]" />
 
-          {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-8 right-8 z-50 p-2 hover:text-neon-lime transition-all duration-500 hover:rotate-90"
+            className="absolute right-8 top-8 z-50 p-2 transition-all duration-500 hover:rotate-90 hover:text-neon-lime"
+            aria-label={t('navigation.close')}
           >
             <X size={28} strokeWidth={1} />
           </button>
 
-          {/* Left Panel - Info */}
-          <div className="hidden md:flex w-1/3 h-full flex-col justify-between p-16 border-r border-white/[0.08]">
+          <div className="hidden h-full w-1/3 flex-col justify-between border-r border-white/[0.08] p-16 md:flex">
             <div>
-              <h2 className="text-xs tracking-[0.3em] uppercase mb-8 font-display text-neon-lime">CONTACT</h2>
-              <p className="text-white/40 font-light leading-relaxed text-sm">
-                12 Rue de la Paix<br />
-                75002 Paris, France<br />
-                +33 1 42 68 53 00<br />
-                <span className="text-white/60 hover:text-neon-lime transition-colors cursor-pointer">hello@webstar-studio.com</span>
+              <h2 className="mb-8 font-display text-xs uppercase tracking-[0.3em] text-neon-lime">{t('navigation.contactLabel')}</h2>
+              <p className="text-sm font-light leading-relaxed text-white/40">
+                {t('navigation.contactBlock.line1')}
+                <br />
+                {t('navigation.contactBlock.line2')}
+                <br />
+                {t('navigation.contactBlock.line3')}
+                <br />
+                <Link href="mailto:hello@webstar-studio.com" className="text-white/60 transition-colors hover:text-neon-lime">
+                  hello@webstar-studio.com
+                </Link>
               </p>
             </div>
+
             <div className="flex gap-6">
-              <Instagram size={20} className="cursor-pointer text-white/40 hover:text-neon-lime transition-colors duration-300" />
-              <Linkedin size={20} className="cursor-pointer text-white/40 hover:text-neon-lime transition-colors duration-300" />
-              <Twitter size={20} className="cursor-pointer text-white/40 hover:text-neon-lime transition-colors duration-300" />
+              <Instagram size={20} className="cursor-pointer text-white/40 transition-colors duration-300 hover:text-neon-lime" />
+              <Linkedin size={20} className="cursor-pointer text-white/40 transition-colors duration-300 hover:text-neon-lime" />
+              <Twitter size={20} className="cursor-pointer text-white/40 transition-colors duration-300 hover:text-neon-lime" />
             </div>
           </div>
 
-          {/* Right Panel - Navigation */}
-          <div className="flex-1 h-full flex flex-col justify-center px-8 md:px-24">
-            <nav className="flex flex-col gap-4 md:gap-6">
-              <motion.a
-                href="#projects"
-                custom={0}
-                variants={linkVariants}
-                onClick={onClose}
-                className="text-4xl md:text-7xl font-light tracking-wide uppercase text-white/60 hover:text-neon-lime transition-colors duration-300 font-display hover:translate-x-4 transform"
-              >
-                {t('nav.projects')}
-              </motion.a>
-              <motion.a
-                href="#expertise"
-                custom={1}
-                variants={linkVariants}
-                onClick={onClose}
-                className="text-4xl md:text-7xl font-light tracking-wide uppercase text-white/60 hover:text-neon-lime transition-colors duration-300 font-display hover:translate-x-4 transform"
-              >
-                {t('nav.expertise')}
-              </motion.a>
-              <motion.a
-                href="#agency"
-                custom={2}
-                variants={linkVariants}
-                onClick={onClose}
-                className="text-4xl md:text-7xl font-light tracking-wide uppercase text-white/60 hover:text-neon-lime transition-colors duration-300 font-display hover:translate-x-4 transform"
-              >
-                {t('nav.agency')}
-              </motion.a>
-              <motion.a
-                href="#contact"
-                custom={3}
-                variants={linkVariants}
-                onClick={onClose}
-                className="text-4xl md:text-7xl font-light tracking-wide uppercase text-white/60 hover:text-neon-lime transition-colors duration-300 font-display hover:translate-x-4 transform"
-              >
-                {t('nav.contact')}
-              </motion.a>
+          <div className="flex h-full flex-1 flex-col justify-center px-8 md:px-24">
+            <nav className="flex flex-col gap-3 md:gap-5">
+              {PRIMARY_NAV_ITEMS.map((item, index) => {
+                const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+
+                return (
+                  <motion.div key={item.id} custom={index} variants={linkVariants}>
+                    <Link
+                      href={item.href}
+                      onClick={onClose}
+                      className={`font-display text-4xl uppercase tracking-wide transition-colors duration-300 hover:translate-x-3 hover:text-neon-lime md:text-7xl ${
+                        isActive ? 'text-neon-lime' : 'text-white/60'
+                      }`}
+                    >
+                      {t(item.labelKey)}
+                    </Link>
+                  </motion.div>
+                );
+              })}
             </nav>
 
-            <motion.div
-              variants={linkVariants}
-              custom={5}
-              className="mt-16 flex gap-6 text-xs tracking-[0.3em]"
-            >
-              <button onClick={() => i18n.changeLanguage('en')} className={`${(i18n.language || 'en').startsWith('en') ? 'border-b border-neon-lime text-neon-lime' : 'text-white/30 hover:text-white/60'} transition-colors pb-1`}>EN</button>
-              <button onClick={() => i18n.changeLanguage('pt')} className={`${(i18n.language || 'en').startsWith('pt') ? 'border-b border-neon-lime text-neon-lime' : 'text-white/30 hover:text-white/60'} transition-colors pb-1`}>PT</button>
-              <button onClick={() => i18n.changeLanguage('es')} className={`${(i18n.language || 'en').startsWith('es') ? 'border-b border-neon-lime text-neon-lime' : 'text-white/30 hover:text-white/60'} transition-colors pb-1`}>ES</button>
+            <motion.div variants={linkVariants} custom={PRIMARY_NAV_ITEMS.length + 1} className="mt-14">
+              <p className="mb-3 text-[10px] uppercase tracking-[0.3em] text-white/35">{t('nav.story.label')}</p>
+              <div className="flex flex-wrap gap-4 text-xs tracking-[0.2em] text-white/55">
+                {HOME_STORY_ANCHORS.map((item) => (
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    onClick={onClose}
+                    className="border-b border-transparent pb-1 transition-colors hover:border-neon-lime hover:text-neon-lime"
+                  >
+                    {t(item.labelKey)}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div variants={linkVariants} custom={PRIMARY_NAV_ITEMS.length + 2} className="mt-12 flex gap-6 text-xs tracking-[0.3em]">
+              <button
+                onClick={() => i18n.changeLanguage('en')}
+                className={`${currentLanguage.startsWith('en') ? 'border-b border-neon-lime text-neon-lime' : 'text-white/30 hover:text-white/60'} pb-1 transition-colors`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => i18n.changeLanguage('pt')}
+                className={`${currentLanguage.startsWith('pt') ? 'border-b border-neon-lime text-neon-lime' : 'text-white/30 hover:text-white/60'} pb-1 transition-colors`}
+              >
+                PT
+              </button>
+              <button
+                onClick={() => i18n.changeLanguage('es')}
+                className={`${currentLanguage.startsWith('es') ? 'border-b border-neon-lime text-neon-lime' : 'text-white/30 hover:text-white/60'} pb-1 transition-colors`}
+              >
+                ES
+              </button>
             </motion.div>
           </div>
         </motion.div>

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useVelocity, useSpring, useTransform, useAnimationFrame } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
 
 const VelocityMarquee: React.FC = () => {
   const baseX = useRef(0);
@@ -57,6 +58,7 @@ const VelocityMarquee: React.FC = () => {
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
+  const year = new Date().getFullYear();
 
   return (
     <footer className="bg-[#000000] text-soft-white overflow-hidden border-t border-white/5">
@@ -72,7 +74,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="col-span-1">
-          <h4 className="text-xs uppercase tracking-widest text-neon-lime mb-6">{t('footer.social')}</h4>
+          <h4 className="text-xs uppercase tracking-widest text-neon-lime mb-6">{t('footer.socialLabel')}</h4>
           <ul className="space-y-4 font-light text-white/40">
             <li className="hover:text-neon-lime transition-colors cursor-pointer">Instagram</li>
             <li className="hover:text-neon-lime transition-colors cursor-pointer">Twitter</li>
@@ -82,16 +84,20 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="col-span-1">
-          <h4 className="text-xs uppercase tracking-widest text-neon-lime mb-6">{t('footer.legal')}</h4>
+          <h4 className="text-xs uppercase tracking-widest text-neon-lime mb-6">{t('footer.legalLabel')}</h4>
           <ul className="space-y-4 font-light text-white/40">
-            <li className="hover:text-neon-lime transition-colors cursor-pointer">{t('footer.privacy')}</li>
-            <li className="hover:text-neon-lime transition-colors cursor-pointer">{t('footer.terms')}</li>
+            <li className="hover:text-neon-lime transition-colors cursor-pointer">
+              <Link href="/contact">{t('nav.contact')}</Link>
+            </li>
+            <li className="hover:text-neon-lime transition-colors cursor-pointer">
+              <Link href="/news">{t('nav.news')}</Link>
+            </li>
           </ul>
         </div>
       </div>
 
       <div className="px-6 md:px-12 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-white/10 tracking-widest uppercase">
-        <p>{t('footer.copyright')}</p>
+        <p>{t('footer.copyright', { year })}</p>
         <p>EST. 2024</p>
       </div>
     </footer>
