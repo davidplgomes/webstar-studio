@@ -4,6 +4,7 @@ export const PRIMARY_NAV_ITEMS: NavItem[] = [
   { id: 'home', labelKey: 'nav.home', href: '/' },
   { id: 'services', labelKey: 'nav.services', href: '/services' },
   { id: 'about', labelKey: 'nav.about', href: '/about' },
+  { id: 'portfolio', labelKey: 'nav.portfolio', href: '/portfolio' },
   { id: 'careers', labelKey: 'nav.careers', href: '/careers' },
   { id: 'news', labelKey: 'nav.news', href: '/news' },
   { id: 'contact', labelKey: 'nav.contact', href: '/contact' },

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { X, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { X, Instagram, Linkedin } from 'lucide-react';
 
 import { HOME_STORY_ANCHORS, PRIMARY_NAV_ITEMS } from '@/data/navigation';
 
@@ -70,16 +70,19 @@ const Navigation: React.FC<NavigationProps> = ({ isOpen, onClose }) => {
                 <br />
                 {t('navigation.contactBlock.line3')}
                 <br />
-                <Link href="mailto:hello@webstar-studio.com" className="text-white/60 transition-colors hover:text-neon-lime">
-                  hello@webstar-studio.com
+                <Link href="mailto:hello@webstar.studio" className="text-white/60 transition-colors hover:text-neon-lime">
+                  hello@webstar.studio
                 </Link>
               </p>
             </div>
 
             <div className="flex gap-6">
-              <Instagram size={20} className="cursor-pointer text-white/40 transition-colors duration-300 hover:text-neon-lime" />
-              <Linkedin size={20} className="cursor-pointer text-white/40 transition-colors duration-300 hover:text-neon-lime" />
-              <Twitter size={20} className="cursor-pointer text-white/40 transition-colors duration-300 hover:text-neon-lime" />
+              <Link href="https://instagram.com/weare.webstar" target="_blank" rel="noreferrer" className="text-white/40 transition-colors duration-300 hover:text-neon-lime">
+                <Instagram size={20} />
+              </Link>
+              <Link href="https://linkedin.com/company/webstarstudio" target="_blank" rel="noreferrer" className="text-white/40 transition-colors duration-300 hover:text-neon-lime">
+                <Linkedin size={20} />
+              </Link>
             </div>
           </div>
 

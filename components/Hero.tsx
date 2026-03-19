@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
         {/* Right Paragraph */}
         <div className="mt-12 lg:mt-0 flex flex-col items-start lg:items-end w-full lg:w-[35%] text-left lg:translate-y-12">
           <p ref={paragraphRef} className="text-white/50 text-[14px] md:text-[16px] leading-[1.6] font-light max-w-sm lg:max-w-xs font-sans">
-            From concept to launch — we design, develop, and scale digital products that define brands. Apps, websites, marketing, automations — whatever your vision demands.
+            We architect digital ecosystems with strategy, applied AI, and design precision so ambitious companies can grow with more clarity, speed, and technical depth.
           </p>
         </div>
       </div>

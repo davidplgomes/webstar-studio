@@ -1,181 +1,281 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import SiteShell from '@/components/layout/SiteShell';
-import { useMotionSettings } from '@/hooks/useMotionSettings';
+import { PageHero, PageSection, PageShell, SectionIntro, StatStrip, pageMotion, EASE, VIEWPORT } from '@/components/pages/PagePrimitives';
 
-gsap.registerPlugin(ScrollTrigger);
-
-interface TimelineItem {
-  year: string;
-  title: string;
-  description: string;
-}
-
-interface MetricItem {
-  label: string;
-  value: string;
-}
-
-interface PresenceItem {
-  city: string;
-  detail: string;
-}
-
-interface LeadershipItem {
-  title: string;
-  value: string;
-}
+interface MetricItem { label: string; value: string }
+interface ValueItem { title: string; description: string }
+interface PresenceItem { city: string; detail: string }
+interface TestimonialItem { quote: string; author: string }
 
 export default function AboutPage() {
   const { t } = useTranslation();
-  const { cinematicEnabled } = useMotionSettings();
 
-  const missionRef = useRef<HTMLElement>(null);
-
-  const timeline = t('about.timeline.items', { returnObjects: true }) as TimelineItem[];
   const metrics = t('about.metrics.items', { returnObjects: true }) as MetricItem[];
+  const values = t('about.values.items', { returnObjects: true }) as ValueItem[];
   const presence = t('about.presence.items', { returnObjects: true }) as PresenceItem[];
-  const leadership = t('about.leadership.items', { returnObjects: true }) as LeadershipItem[];
+  const testimonials = t('about.testimonials.items', { returnObjects: true }) as TestimonialItem[];
+  const credentials = t('about.founder.credentials', { returnObjects: true }) as string[];
 
-  useGSAP(
-    () => {
-      if (!missionRef.current || !cinematicEnabled) return;
-
-      const cards = missionRef.current.querySelectorAll('[data-mission-card]');
-
-      gsap.fromTo(
-        cards,
-        { y: 90, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.12,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: missionRef.current,
-            start: 'top 70%',
-          },
-        }
-      );
-    },
-    { dependencies: [cinematicEnabled] }
-  );
+  /* ─── Testimonial carousel ─── */
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  useEffect(() => {
+    if (testimonials.length <= 1) return;
+    const timer = setInterval(() => {
+      setActiveTestimonial((i) => (i + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
 
   return (
     <SiteShell withBackground withCursor>
-      <div className="px-6 pb-24 pt-44 md:px-12">
-        <section className="mx-auto grid w-full max-w-7xl gap-14 lg:grid-cols-[1fr_0.85fr]">
-          <div>
-            <p className="mb-5 text-xs uppercase tracking-[0.28em] text-neon-lime">{t('about.hero.eyebrow')}</p>
-            <h1 className="font-display text-5xl uppercase leading-[0.9] text-white md:text-7xl lg:text-8xl">{t('about.hero.title')}</h1>
-          </div>
-          <p className="self-end text-lg leading-relaxed text-white/65">{t('about.hero.description')}</p>
-        </section>
+      <PageShell>
+        <PageHero
+          eyebrow={t('about.hero.eyebrow')}
+          title={t('about.hero.title')}
+          description={t('about.hero.description')}
+          aside={<p className="max-w-xl text-sm uppercase tracking-[0.22em] text-white/38">{t('about.hero.aside')}</p>}
+        />
 
-        <section ref={missionRef} className="mx-auto mt-24 grid w-full max-w-7xl gap-4 md:grid-cols-3">
-          <article data-mission-card className="liquid-glass-card rounded-sm p-6">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-neon-lime">{t('about.mission.title')}</p>
-            <p className="mt-4 text-white/65">{t('about.mission.description')}</p>
-          </article>
-          <article data-mission-card className="liquid-glass-card rounded-sm p-6">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-neon-lime">{t('about.vision.title')}</p>
-            <p className="mt-4 text-white/65">{t('about.vision.description')}</p>
-          </article>
-          <article data-mission-card className="liquid-glass-card rounded-sm p-6">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-neon-lime">{t('about.promise.title')}</p>
-            <p className="mt-4 text-white/65">{t('about.promise.description')}</p>
-          </article>
-        </section>
+        {/* ─── Metrics ─── */}
+        <PageSection className="mt-16">
+          <StatStrip items={metrics} />
+        </PageSection>
 
-        <section className="mx-auto mt-24 grid w-full max-w-7xl gap-12 lg:grid-cols-[0.52fr_0.48fr]">
-          <div>
-            <h2 className="mb-8 font-display text-4xl uppercase text-white md:text-5xl">{t('about.timeline.title')}</h2>
-            <div className="space-y-8">
-              {timeline.map((item, index) => (
-                <motion.article
-                  key={item.year}
-                  initial={{ opacity: 0, x: -25 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ delay: index * 0.06, duration: 0.45 }}
-                  className="liquid-glass-card rounded-sm p-6"
-                >
-                  <p className="text-[11px] uppercase tracking-[0.3em] text-neon-lime">{item.year}</p>
-                  <h3 className="mt-3 text-2xl uppercase text-white">{item.title}</h3>
-                  <p className="mt-2 text-white/60">{item.description}</p>
-                </motion.article>
-              ))}
-            </div>
-          </div>
+        {/* ─── Positioning — editorial pull quote + mission strip ─── */}
+        <PageSection>
+          <SectionIntro
+            eyebrow={t('about.positioning.eyebrow')}
+            title={t('about.positioning.title')}
+            description={t('about.positioning.description')}
+          />
 
-          <div>
-            <h2 className="mb-8 font-display text-4xl uppercase text-white md:text-5xl">{t('about.metrics.title')}</h2>
-            <div className="space-y-4">
-              {metrics.map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ delay: index * 0.05, duration: 0.45 }}
-                  className="liquid-glass-card flex items-center justify-between rounded-sm px-5 py-4"
-                >
-                  <p className="text-white/60">{item.label}</p>
-                  <p className="font-display text-2xl text-neon-lime">{item.value}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+          {/* Pull quote */}
+          <motion.article
+            className="page-panel relative"
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT}
+            variants={pageMotion.fadeUp}
+          >
+            <span className="pointer-events-none absolute -left-2 -top-8 select-none font-editorial text-[8rem] leading-none text-neon-lime/20">
+              &ldquo;
+            </span>
+            <p className="page-kicker">{t('about.positioning.pitchLabel')}</p>
+            <p className="mt-5 font-editorial text-[clamp(1.5rem,3.5vw,3rem)] italic leading-[1.2] text-white/85">
+              {t('about.positioning.pitch')}
+            </p>
+          </motion.article>
 
-        <section className="mx-auto mt-24 grid w-full max-w-7xl gap-10 lg:grid-cols-2">
-          <div>
-            <h2 className="mb-8 font-display text-4xl uppercase text-white md:text-5xl">{t('about.presence.title')}</h2>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {presence.map((item, index) => (
-                <motion.article
-                  key={item.city}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ delay: index * 0.05, duration: 0.4 }}
-                  className="liquid-glass-card rounded-sm p-5"
-                >
-                  <p className="text-lg uppercase text-white">{item.city}</p>
-                  <p className="mt-2 text-sm text-white/55">{item.detail}</p>
-                </motion.article>
-              ))}
-            </div>
-          </div>
+          {/* Mission / Vision / Promise strip */}
+          <motion.div
+            className="mt-4 grid gap-px overflow-hidden rounded-sm border border-white/10 bg-white/5 md:grid-cols-3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT}
+            variants={pageMotion.staggerFast}
+          >
+            {[
+              { label: t('about.mission.title'), text: t('about.mission.description') },
+              { label: t('about.vision.title'), text: t('about.vision.description') },
+              { label: t('about.promise.title'), text: t('about.promise.description') },
+            ].map((item) => (
+              <motion.div
+                key={item.label}
+                variants={pageMotion.fadeUp}
+                className="bg-black/80 p-6 backdrop-blur-md"
+              >
+                <p className="page-kicker">{item.label}</p>
+                <p className="mt-4 text-white/62">{item.text}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </PageSection>
 
-          <div>
-            <h2 className="mb-8 font-display text-4xl uppercase text-white md:text-5xl">{t('about.leadership.title')}</h2>
-            <div className="space-y-4">
-              {leadership.map((item, index) => (
+        {/* ─── Values — bento asymmetric grid ─── */}
+        <PageSection>
+          <SectionIntro
+            eyebrow={t('about.values.eyebrow')}
+            title={t('about.values.title')}
+            description={t('about.values.description')}
+          />
+
+          <div className="flex flex-col gap-4">
+            {/* Row 1: 1.5fr / 1fr */}
+            <div className="grid gap-4 md:grid-cols-[1.5fr_1fr]">
+              {values.slice(0, 2).map((item, index) => (
                 <motion.article
                   key={item.title}
-                  initial={{ opacity: 0, x: 18 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ delay: index * 0.05, duration: 0.45 }}
-                  className="liquid-glass-card rounded-sm p-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={VIEWPORT}
+                  variants={index === 0 ? pageMotion.slideFromLeft : pageMotion.slideFromRight}
+                  className="page-panel"
                 >
-                  <p className="text-xs uppercase tracking-[0.24em] text-neon-lime">{item.title}</p>
-                  <p className="mt-3 text-2xl text-white/85">{item.value}</p>
+                  <p className="page-kicker">0{index + 1}</p>
+                  <h3 className="mt-4 text-2xl uppercase text-white">{item.title}</h3>
+                  <p className="mt-3 text-white/60">{item.description}</p>
+                </motion.article>
+              ))}
+            </div>
+            {/* Row 2: 1fr / 1.5fr */}
+            <div className="grid gap-4 md:grid-cols-[1fr_1.5fr]">
+              {values.slice(2, 4).map((item, index) => (
+                <motion.article
+                  key={item.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={VIEWPORT}
+                  variants={index === 0 ? pageMotion.slideFromLeft : pageMotion.slideFromRight}
+                  className="page-panel"
+                >
+                  <p className="page-kicker">0{index + 3}</p>
+                  <h3 className="mt-4 text-2xl uppercase text-white">{item.title}</h3>
+                  <p className="mt-3 text-white/60">{item.description}</p>
+                </motion.article>
+              ))}
+            </div>
+            {/* Row 3: 1fr / 1fr */}
+            <div className="grid gap-4 md:grid-cols-2">
+              {values.slice(4, 6).map((item, index) => (
+                <motion.article
+                  key={item.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={VIEWPORT}
+                  variants={index === 0 ? pageMotion.slideFromLeft : pageMotion.slideFromRight}
+                  className="page-panel"
+                >
+                  <p className="page-kicker">0{index + 5}</p>
+                  <h3 className="mt-4 text-2xl uppercase text-white">{item.title}</h3>
+                  <p className="mt-3 text-white/60">{item.description}</p>
                 </motion.article>
               ))}
             </div>
           </div>
-        </section>
-      </div>
+        </PageSection>
+
+        {/* ─── Founder — magazine spread with vertical divider ─── */}
+        <PageSection>
+          <SectionIntro
+            eyebrow={t('about.founder.eyebrow')}
+            title={t('about.founder.title')}
+            description={t('about.founder.description')}
+          />
+
+          <motion.article
+            className="page-panel"
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT}
+            variants={pageMotion.fadeUp}
+          >
+            <div className="grid gap-6 lg:grid-cols-[1fr_2px_1fr]">
+              {/* Bio side */}
+              <div>
+                <p className="page-kicker">{t('about.founder.role')}</p>
+                <h3 className="mt-4 stroke-text-lime font-display text-[clamp(3rem,5vw,5rem)] uppercase leading-[0.95]">
+                  {t('about.founder.name')}
+                </h3>
+                <p className="mt-5 text-white/62">{t('about.founder.bio')}</p>
+              </div>
+
+              {/* Vertical neon divider */}
+              <div className="hidden bg-neon-lime/30 lg:block" />
+
+              {/* Credentials side */}
+              <div>
+                <p className="page-kicker">{t('about.founder.credentialsLabel')}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {credentials.map((item) => (
+                    <span key={item} className="page-chip transition-colors hover:border-neon-lime/40 hover:bg-neon-lime/10 hover:text-neon-lime">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.article>
+        </PageSection>
+
+        {/* ─── Presence — horizontal scroll strip ─── */}
+        <PageSection>
+          <SectionIntro
+            eyebrow={t('about.presence.eyebrow')}
+            title={t('about.presence.title')}
+            description={t('about.presence.description')}
+          />
+
+          <motion.div
+            className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT}
+            variants={pageMotion.staggerContainer}
+          >
+            {presence.map((item) => (
+              <motion.article
+                key={item.city}
+                variants={pageMotion.slideFromRight}
+                className="page-panel min-w-[280px] flex-shrink-0 snap-center md:min-w-[320px]"
+              >
+                <p className="font-display text-5xl uppercase leading-none text-white">{item.city}</p>
+                <p className="mt-4 text-white/58">{item.detail}</p>
+              </motion.article>
+            ))}
+          </motion.div>
+        </PageSection>
+
+        {/* ─── Testimonials — rotating carousel ─── */}
+        <PageSection>
+          <SectionIntro
+            eyebrow={t('about.testimonials.eyebrow')}
+            title={t('about.testimonials.title')}
+            description={t('about.testimonials.description')}
+          />
+
+          <div className="page-panel relative min-h-[200px]">
+            <AnimatePresence mode="wait">
+              {testimonials.length > 0 && (
+                <motion.div
+                  key={activeTestimonial}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.6, ease: EASE }}
+                >
+                  <p className="font-editorial text-2xl italic leading-relaxed text-white/80 md:text-3xl lg:text-4xl">
+                    &ldquo;{testimonials[activeTestimonial].quote}&rdquo;
+                  </p>
+                  <p className="mt-6 flex items-center gap-3 page-kicker">
+                    <span className="inline-block h-px w-6 bg-neon-lime" />
+                    {testimonials[activeTestimonial].author}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Dot navigation */}
+            {testimonials.length > 1 && (
+              <div className="mt-8 flex gap-2">
+                {testimonials.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveTestimonial(i)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === activeTestimonial ? 'w-6 bg-neon-lime' : 'w-2 bg-white/20 hover:bg-white/40'
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        </PageSection>
+      </PageShell>
     </SiteShell>
   );
 }

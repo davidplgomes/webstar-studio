@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-import { HOME_STORY_ANCHORS, PRIMARY_NAV_ITEMS } from '@/data/navigation';
+import { PRIMARY_NAV_ITEMS } from '@/data/navigation';
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -112,15 +112,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
         <div className="hidden h-full w-16 shrink-0 lg:block md:w-24" />
       </div>
 
-      {pathname === '/' ? (
-        <div className="hidden w-full items-center justify-center gap-8 border-b border-white/5 bg-black/30 px-8 py-2 text-[9px] tracking-[0.28em] text-white/45 lg:flex">
-          {HOME_STORY_ANCHORS.map((item) => (
-            <Link key={item.id} href={item.href} className="transition-colors hover:text-neon-lime">
-              {tt(item.labelKey)}
-            </Link>
-          ))}
-        </div>
-      ) : null}
     </motion.header>
   );
 };

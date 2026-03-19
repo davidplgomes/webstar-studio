@@ -3,375 +3,454 @@
     "home": "Home",
     "services": "Services",
     "about": "About",
+    "portfolio": "Portfolio",
     "careers": "Careers",
-    "news": "News",
+    "news": "Insights",
     "contact": "Contact",
     "story": {
       "label": "Story Map",
       "globe": "Globe",
-      "intro": "Intro",
-      "services": "Services Flow",
-      "projects": "Projects"
+      "intro": "Manifesto",
+      "services": "Systems",
+      "projects": "Portfolio"
     }
   },
   "header": {
     "menuToggle": "Open menu",
     "banner": {
-      "message": "Digital systems engineered for speed, clarity, and growth.",
-      "cta": "Explore capabilities"
+      "message": "International software house for digital ecosystems, applied AI, and design with purpose.",
+      "cta": "Explore structure"
     }
   },
   "navigation": {
     "close": "Close menu",
-    "contactLabel": "Contact",
+    "contactLabel": "Direct Contact",
     "contactBlock": {
-      "line1": "Avenida Boa Viagem, 410",
-      "line2": "Recife, Brazil",
-      "line3": "+55 81 90000-0000"
-    }
-  },
-  "hero": {
-    "title": "WEBSTAR",
-    "subtitle": "Launching your business to Success",
-    "scroll": "Scroll",
-    "card": {
-      "label": "FEATURED MISSION",
-      "title": "LUMINOUS",
-      "desc": "Explore the latest installation at the intersection of light and matter."
+      "line1": "Praca do Derby, 149 — Recife, PE",
+      "line2": "55 Ranelagh, St Peters, Dublin 6",
+      "line3": "15+ years | 200+ projects | 8 countries"
     }
   },
   "intro": {
-    "line1": "WE SHAPE",
-    "line2": "THE FUTURE",
-    "desc1": "WEBSTAR is a digital studio dedicated to innovation and spatial design. We bridge the gap between artistic vision and technical reality, transforming ambitious concepts into tangible experiences.",
-    "desc2": "From monumental digital products to immersive installations, our team orchestrstrates every detail with precision, passion, and a relentless pursuit of aesthetic perfection."
+    "backgroundWord": "REBORN",
+    "line1": "REDEFINE",
+    "line2": "THE SYSTEM",
+    "desc1": "Web Star Studio designs platforms, automations, and interfaces with international ambition. Data-led strategy, applied AI, and design with purpose operate here as one system."
   },
   "expertise": {
-    "title": "Our Expertise",
-    "list": {
-      "e1": {
-        "title": "CONCEPTION",
-        "points": [
-          "Artistic Direction",
-          "Technical Studies",
-          "Prototyping"
-        ]
+    "title": "Capabilities",
+    "items": [
+      {
+        "title": "Strategy",
+        "label": "BUSINESS & DIRECTION",
+        "desc": "Business diagnosis, positioning, and roadmap architecture before any execution begins."
       },
-      "e2": {
-        "title": "PRODUCTION",
-        "points": [
-          "Material Sourcing",
-          "Craftsmanship",
-          "Quality Control"
-        ]
+      {
+        "title": "Design",
+        "label": "UI/UX SYSTEMS",
+        "desc": "Premium interfaces with clear hierarchy, strong narrative, and focus on trust, decision flow, and conversion."
       },
-      "e3": {
-        "title": "INSTALLATION",
-        "points": [
-          "Logistics",
-          "On-site Assembly",
-          "Safety Standards"
-        ]
+      {
+        "title": "Engineering",
+        "label": "SCALABLE DELIVERY",
+        "desc": "Front-end and full-stack implementation with strong performance budgets and resilient structure."
       },
-      "e4": {
-        "title": "MAINTENANCE",
-        "points": [
-          "Monitoring",
-          "Restoration",
-          "Upcycling"
-        ]
+      {
+        "title": "Automation",
+        "label": "APPLIED INTELLIGENCE",
+        "desc": "Intelligent workflows, integrations, and operating layers designed to remove friction and manual overhead."
+      },
+      {
+        "title": "Trust",
+        "label": "QUALITY & GOVERNANCE",
+        "desc": "Quality standards, accessibility, security, and visual consistency supporting every release."
       }
-    }
+    ]
   },
   "projects": {
-    "title": "Selected Works",
-    "view_all": "View All Projects"
+    "title": "Selected Systems",
+    "view_all": "View Portfolio"
   },
   "logos": {
-    "trusted_by": "Trusted By"
-  },
-  "news": {
-    "title": "JOURNAL",
-    "read_all": "Read All"
+    "trusted_by": "Projects across multiple sectors"
   },
   "homeRoutes": {
     "eyebrow": "Route Explorer",
-    "description": "Navigate into each domain without breaking the visual language. Every route introduces its own narrative architecture."
+    "description": "The home page remains cinematic. Inner routes organise proof, context, and information with far more clarity."
   },
   "services": {
     "hero": {
       "eyebrow": "Services",
-      "title": "Systems built for momentum",
-      "description": "From strategic direction to launch architecture, our service stack aligns brand expression, product performance, and operational resilience."
+      "title": "Digital architecture for predictable growth",
+      "description": "We build custom digital ecosystems that unify strategy, development, automation, and design inside one delivery model.",
+      "aside": "Built around diagnosis, senior execution, and measurable design intent."
     },
-    "useCases": {
-      "title": "Use-case atlas",
-      "subtitle": "Context-specific programs, never generic packages.",
+    "offerings": {
+      "eyebrow": "What we build",
+      "title": "Workstreams",
+      "description": "Every engagement starts from real context, never a generic package.",
       "items": [
         {
-          "title": "Launch acceleration",
-          "description": "Compress concept-to-market cycles with clear product and content choreography.",
-          "metric": "Sprint Stack"
+          "title": "Web platforms and systems",
+          "description": "Custom digital products focused on performance, scale, and operational clarity."
         },
         {
-          "title": "Experience modernization",
-          "description": "Refactor legacy touchpoints into cohesive interfaces with measurable UX gains.",
-          "metric": "Interface Renewal"
+          "title": "Process automation",
+          "description": "Integrations, workflows, and intelligent layers that reduce friction and increase execution speed."
         },
         {
-          "title": "Conversion systems",
-          "description": "Design funnel mechanics that guide intent and reduce friction at every stage.",
-          "metric": "Growth Engine"
+          "title": "AI applied to business",
+          "description": "Artificial intelligence implementations connected to operations, sales, service, and decision support."
         },
         {
-          "title": "Security-first delivery",
-          "description": "Embed compliance and hardening controls directly into product delivery flows.",
-          "metric": "Trust Layer"
+          "title": "Strategic UI/UX",
+          "description": "Interfaces designed to convert better, guide better, and strengthen the brand with intent."
+        },
+        {
+          "title": "Digital ecosystem architecture",
+          "description": "Systems, tools, and infrastructure arranged to perform as one coherent environment."
+        },
+        {
+          "title": "Web and mobile delivery",
+          "description": "Cross-platform experiences built for usability, maintainability, and measurable business impact."
         }
       ]
     },
-    "capabilities": {
-      "eyebrow": "Capability matrix",
-      "title": "Specialized modules",
-      "description": "Each module can run standalone or as part of an integrated delivery track.",
+    "pillars": {
+      "eyebrow": "Three pillars",
+      "title": "The logic behind the work",
+      "description": "Webstar's value comes from combining these layers at the same level of rigor.",
       "items": [
         {
-          "title": "Strategy & Framing",
-          "value": "North-star blueprint",
-          "detail": "Business architecture, positioning systems, and roadmap sequencing tied to outcomes."
+          "title": "Data-led strategy",
+          "description": "Before proposing, we diagnose the business, the audience, the market pressure, and the real signals that matter."
         },
         {
-          "title": "Design Systems",
-          "value": "Interface language",
-          "detail": "Component ecosystems and motion logic tuned for premium digital experiences."
+          "title": "Automation with AI",
+          "description": "We use applied intelligence to simplify operations, evolve workflows, and unlock consistent performance."
         },
         {
-          "title": "Engineering",
-          "value": "Scalable implementation",
-          "detail": "Front-end and full-stack builds with performance budgets and resilient patterns."
-        },
-        {
-          "title": "Operational Enablement",
-          "value": "Team acceleration",
-          "detail": "Governance templates, playbooks, and workflows that keep systems aligned post-launch."
+          "title": "Design with purpose",
+          "description": "Every interface decision is made to strengthen the brand, improve the experience, and move the right metrics."
         }
       ]
     },
     "delivery": {
-      "title": "Delivery methodology",
+      "eyebrow": "Method",
+      "title": "How each project is structured",
+      "description": "Lean enough to move fast, rigorous enough to reduce risk.",
       "items": [
         {
           "phase": "Phase 01",
-          "title": "Signal discovery",
-          "description": "We map product goals, market pressure, and channel behavior into one strategic frame."
+          "title": "Strategic diagnosis",
+          "description": "Business context, goals, bottlenecks, current stack, and repositioning or operational opportunities."
         },
         {
           "phase": "Phase 02",
-          "title": "System prototyping",
-          "description": "Rapid concept testing across interface logic, messaging, and conversion pathways."
+          "title": "System definition",
+          "description": "Information architecture, interface narrative, technical scope, and implementation priorities."
         },
         {
           "phase": "Phase 03",
-          "title": "Production build",
-          "description": "Cross-functional execution with QA gates, analytics instrumentation, and launch readiness."
+          "title": "Build and iterate",
+          "description": "Design and engineering running in parallel with performance, quality, and coherence checkpoints."
         },
         {
           "phase": "Phase 04",
-          "title": "Iteration loop",
-          "description": "Post-launch optimization cycles focused on measurable business impact and scale."
+          "title": "Launch and evolve",
+          "description": "A business-oriented release with the foundation ready for operation, learning, and future cycles."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Common questions",
+      "title": "Important alignment before we begin",
+      "description": "Answers rewritten around the updated brand positioning.",
+      "items": [
+        {
+          "question": "What kinds of projects do you take on?",
+          "answer": "We take on web platforms, custom systems, web and mobile applications, automation, integrations, UI/UX, and digital ecosystem architecture. Our scope stays focused on systems, experience, and technical operation."
+        },
+        {
+          "question": "What do you need to get started?",
+          "answer": "Business context, the primary objective, your current stack, relevant constraints, and any material that improves diagnosis. The proposal is shaped from that understanding."
+        },
+        {
+          "question": "How long does a project take?",
+          "answer": "It depends on scope. Leaner engagements may take one to two weeks; fuller platforms often land between four and twelve weeks."
+        },
+        {
+          "question": "How does investment work?",
+          "answer": "Every project receives a custom investment model. We do not compete on price with generic shops; we optimize for value, technical clarity, and long-term impact."
         }
       ]
     },
     "cta": {
-      "eyebrow": "Ready to engage",
-      "title": "Build your next growth system",
+      "eyebrow": "Ready to structure",
+      "title": "Let's map the right system for your context",
       "button": "Start the conversation"
     }
   },
   "about": {
     "hero": {
       "eyebrow": "About",
-      "title": "A studio built to shape direction",
-      "description": "We combine strategic rigor with creative precision to help ambitious brands move with confidence across digital complexity."
+      "title": "An international studio for digital development",
+      "description": "Web Star Studio operates as a sophisticated software house for companies that need smarter, clearer, and more sustainable digital ecosystems.",
+      "aside": "We work as development partners with technical depth, strategic range, and real ownership over execution."
+    },
+    "positioning": {
+      "eyebrow": "Positioning",
+      "title": "Real growth needs systems, not improvisation",
+      "description": "Our structure combines diagnosis, build, and design under the same operating governance.",
+      "pitchLabel": "Institutional pitch",
+      "pitch": "We design platforms, systems, and automations that turn companies into more predictable growth machines, with global vision, local execution, and uncompromising consistency."
     },
     "mission": {
       "title": "Mission",
-      "description": "Translate complexity into clear systems that unlock growth and long-term brand value."
+      "description": "Turn companies into more predictable growth engines through intelligent digital ecosystems."
     },
     "vision": {
       "title": "Vision",
-      "description": "Design digital environments where ambition, usability, and performance coexist."
+      "description": "Become a global reference for companies seeking digital relevance, technical sophistication, and sustainable growth."
     },
     "promise": {
-      "title": "Promise",
-      "description": "Deliver high-trust execution with measurable results and zero dilution of brand identity."
+      "title": "Commitment",
+      "description": "Deliver with clarity, ownership, and quality without diluting the brand."
     },
-    "timeline": {
-      "title": "Trajectory",
+    "metrics": {
+      "items": [
+        { "label": "International experience", "value": "15+ years" },
+        { "label": "Delivered projects", "value": "200+" },
+        { "label": "Countries served", "value": "8" },
+        { "label": "Operating model", "value": "E2E" }
+      ]
+    },
+    "values": {
+      "eyebrow": "Core values",
+      "title": "How we run the work",
+      "description": "Consistency comes from principles, not improvisation.",
       "items": [
         {
-          "year": "2020",
-          "title": "Studio foundation",
-          "description": "Webstar was established to bridge strategy, design, and engineering under one operating model."
+          "title": "Intentional disruption",
+          "description": "We do not deliver the obvious. We challenge assumptions and open more ambitious paths."
         },
         {
-          "year": "2022",
-          "title": "Regional expansion",
-          "description": "We expanded into multi-market engagements, supporting launch and repositioning programs."
+          "title": "Technical excellence",
+          "description": "Quality is an obligation. Every delivery should reflect strong standards in both technology and design."
         },
         {
-          "year": "2024",
-          "title": "Cinematic system era",
-          "description": "We introduced narrative-first digital systems blending visual language with performance architecture."
+          "title": "Applied intelligence",
+          "description": "AI and automation only matter when they solve real problems and improve business outcomes."
+        },
+        {
+          "title": "Strategic partnership",
+          "description": "We do not operate as a transactional vendor. We stay connected to the business objective."
+        },
+        {
+          "title": "Global vision, local execution",
+          "description": "International experience paired with precise reading of each company's reality."
+        },
+        {
+          "title": "Transparency",
+          "description": "Clear communication, defined ownership, and accountability for what gets aligned."
         }
       ]
     },
-    "metrics": {
-      "title": "Signals",
-      "items": [
-        {
-          "label": "Projects launched",
-          "value": "84+"
-        },
-        {
-          "label": "Average engagement lift",
-          "value": "+37%"
-        },
-        {
-          "label": "Markets served",
-          "value": "11"
-        },
-        {
-          "label": "Senior specialists",
-          "value": "22"
-        }
+    "founder": {
+      "eyebrow": "Leadership",
+      "title": "Strategic direction with multidisciplinary depth",
+      "description": "Webstar is led by a perspective that connects business, technology, and practical execution.",
+      "role": "Founder and Executive Director",
+      "name": "Felipe Antunes",
+      "bio": "Felipe Antunes leads Web Star Studio with more than 15 years of international experience in digital platforms, automation, and business-facing artificial intelligence. His background in Law, Business Administration, and an MBA in AI for Business gives the company a rare blend of technical and strategic judgment.",
+      "credentialsLabel": "Selected credentials",
+      "credentials": [
+        "Law",
+        "Business Administration",
+        "MBA in AI for Business",
+        "IBA co-founder",
+        "Experience across 8 countries"
       ]
     },
     "presence": {
-      "title": "Global presence",
+      "eyebrow": "Presence",
+      "title": "International structure, local reading",
+      "description": "We operate through hubs and remote specialist cells to stay strategically close and operationally flexible.",
       "items": [
-        {
-          "city": "Recife",
-          "detail": "Strategy and product leadership hub."
-        },
-        {
-          "city": "Sao Paulo",
-          "detail": "Enterprise partnerships and growth operations."
-        },
-        {
-          "city": "Lisbon",
-          "detail": "Design systems and international expansion support."
-        },
-        {
-          "city": "Remote cells",
-          "detail": "Specialized contributors embedded across projects."
-        }
+        { "city": "Recife", "detail": "Base for leadership, strategy, and product direction." },
+        { "city": "Dublin", "detail": "International bridge for partnerships and European business articulation." },
+        { "city": "Sao Paulo", "detail": "Access point to enterprise operations and growth environments." },
+        { "city": "Remote cells", "detail": "Distributed specialists assembled according to each project's real needs." }
       ]
     },
-    "leadership": {
-      "title": "Leadership focus",
+    "testimonials": {
+      "eyebrow": "Proof",
+      "title": "Trust built through delivery",
+      "description": "A small selection of feedback that reinforces clarity, speed, and execution quality.",
       "items": [
         {
-          "title": "Cross-disciplinary execution",
-          "value": "Strategy, design, and engineering aligned in one flow."
+          "quote": "An incredible experience. They understood the brand vision and delivered a website that truly reflects our values and goals.",
+          "author": "Thays Zancanaro"
         },
         {
-          "title": "Decision velocity",
-          "value": "Short cycles, clear ownership, and transparent prioritization."
+          "quote": "Excellent results, creative and professional team, very attentive throughout the process. Everything felt deeply aligned with what we needed.",
+          "author": "Thyago Cortez"
         },
         {
-          "title": "Quality governance",
-          "value": "Strong standards for performance, accessibility, and visual coherence."
+          "quote": "Attentive, fast, and patient from start to finish. The delivery came in ahead of schedule and with a very high standard of quality.",
+          "author": "Taniana Perasolo"
         }
       ]
+    }
+  },
+  "portfolio": {
+    "hero": {
+      "eyebrow": "Portfolio",
+      "title": "Proof organised by context, sector, and outcome",
+      "description": "We selected projects that show Webstar's range without falling into empty spectacle. Each entry is a compact read on strategy, technical build, and purposeful interface design.",
+      "aside": "Static curation in this phase, structured to evolve into a dynamic layer later."
+    },
+    "metrics": {
+      "items": [
+        { "label": "Curated projects", "value": "8" },
+        { "label": "Sectors", "value": "7" },
+        { "label": "Countries", "value": "3+" },
+        { "label": "Focus", "value": "Clarity + performance" }
+      ]
+    },
+    "featured": {
+      "eyebrow": "Featured",
+      "title": "One project to open the conversation",
+      "description": "The strongest example is not always the loudest one. Here we prioritise alignment between interface, system, and business goal.",
+      "visit": "Visit project"
+    },
+    "filters": {
+      "all": "All"
+    },
+    "grid": {
+      "eyebrow": "Case map",
+      "title": "A more useful read than a random visual mosaic",
+      "description": "Filter by sector and browse the work with more intention.",
+      "visit": "Open site"
+    },
+    "cta": {
+      "eyebrow": "Your project here",
+      "title": "If you need structure, clarity, and a more sophisticated execution model, let's talk.",
+      "button": "Talk to Webstar"
     }
   },
   "careers": {
     "hero": {
       "eyebrow": "Careers",
-      "title": "Build work that moves the market",
-      "description": "We are assembling a team of strategists, designers, and engineers who want to craft ambitious systems without sacrificing craft."
+      "title": "Build ambitious systems with a high standard of craft",
+      "description": "We look for strategists, designers, and engineers who value depth, ownership, and clarity of execution.",
+      "aside": "A team shaped by quality, constant curiosity, and international ambition."
     },
     "manifesto": {
-      "eyebrow": "Culture manifesto",
-      "text": "High standards. Clear ownership. Relentless curiosity. We build in public, learn quickly, and push every release beyond the expected baseline."
+      "eyebrow": "Manifesto",
+      "text": "High standards. Clear ownership. Constant curiosity. We build real systems for real companies without sacrificing visual sophistication or technical depth."
     },
     "benefits": {
-      "title": "Benefits architecture",
-      "subtitle": "Structured for sustainable performance and creative depth.",
+      "eyebrow": "Work environment",
+      "title": "A structure built for sustainable growth",
+      "subtitle": "Rituals, mentorship, and autonomy designed for long-term evolution.",
       "items": [
         {
-          "title": "Deep craft time",
-          "detail": "Dedicated focus windows for exploration, experimentation, and system refinement."
+          "title": "Time for deep craft",
+          "detail": "Space for exploration, refinement, and meaningful improvement rather than rushed output."
         },
         {
-          "title": "Growth tracks",
-          "detail": "Role progression frameworks with mentorship, peer reviews, and quarterly development plans."
+          "title": "Growth paths",
+          "detail": "Mentorship, structured feedback, and progression guided by impact and technical mastery."
         },
         {
-          "title": "Hybrid flexibility",
-          "detail": "Operate from our hubs or remotely with clear collaboration rhythms and async standards."
+          "title": "Flexible model",
+          "detail": "Hybrid and remote collaboration with clear rituals, solid ownership, and strong async communication."
         },
         {
-          "title": "Health and wellbeing",
-          "detail": "Support programs designed for long-term performance, not short-term burnout cycles."
+          "title": "Sustainable pace",
+          "detail": "Long-range performance matters more than burnout cycles and improvisation."
         }
       ]
     },
     "process": {
-      "title": "Hiring sequence",
+      "eyebrow": "Process",
+      "title": "How we evaluate fit",
+      "description": "We look for a real match between repertoire, decision-making, and collaboration style.",
       "items": [
         {
           "step": "Step 01",
-          "title": "Context review",
-          "description": "A concise conversation around your trajectory, strengths, and working principles."
+          "title": "Context and repertoire",
+          "description": "A conversation about trajectory, references, decision-making, and work principles."
         },
         {
           "step": "Step 02",
-          "title": "Practical challenge",
-          "description": "A scoped exercise that mirrors real project constraints and collaboration patterns."
+          "title": "Exercise with realism",
+          "description": "A short scope that still mirrors the way we think about product, interface, and execution."
         },
         {
           "step": "Step 03",
-          "title": "Team calibration",
-          "description": "Mutual alignment on expectations, impact scope, and growth direction."
+          "title": "Mutual calibration",
+          "description": "Final alignment around expected impact, pace, and growth direction."
         }
       ]
     },
     "cta": {
       "eyebrow": "Talent network",
-      "title": "Introduce your profile",
-      "button": "Send your details"
+      "title": "If your profile fits this kind of build, share your context.",
+      "button": "Send your information"
     }
   },
   "newsPage": {
     "hero": {
-      "eyebrow": "Newsroom",
-      "title": "Signals, launches, and strategic notes",
-      "description": "A running editorial stream covering what we build, what we learn, and what is changing in digital execution."
+      "eyebrow": "Insights",
+      "title": "Notes, case studies, and signals from our operation",
+      "description": "An editorial stream designed to show how we think about digital systems, product decisions, engineering, and growth with greater clarity.",
+      "aside": "No empty content noise. Only material that helps explain how we structure the work."
     },
     "featured": {
+      "eyebrow": "Featured story",
+      "title": "One deeper slice",
+      "description": "The featured entry reflects the level of narrative and precision we want to expand over time.",
       "readStory": "Read story"
     },
     "filters": {
-      "label": "Category rail",
+      "label": "Categories",
       "all": "All"
+    },
+    "grid": {
+      "title": "Editorial archive",
+      "description": "A compact collection of case studies, engineering notes, and strategic observations."
     },
     "card": {
       "read": "Read"
     }
   },
   "newsArticle": {
-    "back": "Back to news",
-    "tags": "Topic signals",
-    "relatedTitle": "Related stories",
+    "back": "Back to insights",
+    "tags": "Topics",
+    "relatedTitle": "Related reading",
     "readMore": "Read more"
   },
   "contact": {
     "hero": {
       "eyebrow": "Contact",
-      "title": "Start a strategic conversation",
-      "description": "Share your context, constraints, and ambition. We will map a direction and suggest the most relevant collaboration model."
+      "title": "Start a conversation with clear context and ambition",
+      "description": "Share what your company needs to rebuild, accelerate, or structure. We reply with strategic reading, not an automated sales script.",
+      "aside": "Best suited for companies looking for system thinking, technical depth, and more mature execution."
+    },
+    "trust": {
+      "items": [
+        { "label": "Initial reply", "value": "24 business hours" },
+        { "label": "Review", "value": "Senior-led" },
+        { "label": "Model", "value": "Custom scope" },
+        { "label": "Focus", "value": "Web, AI, automation" }
+      ]
+    },
+    "formBlock": {
+      "eyebrow": "Initial brief",
+      "title": "Bring the project context",
+      "description": "The better the context, the more precise the direction we can suggest."
     },
     "form": {
       "name": "Name",
@@ -380,43 +459,72 @@
       "message": "Project context",
       "submit": "Send request",
       "sending": "Sending",
-      "success": "Message received. This form currently uses a mock submission handler and will be wired to API next.",
-      "mockNotice": "Frontend-only flow for now. API integration will plug into this submit handler.",
+      "success": "Message received. This flow still uses a mock handler and will be connected to the API next.",
+      "mockNotice": "Frontend flow for now. API integration will be connected in this submit handler.",
       "errors": {
-        "name": "Please provide your name.",
-        "email": "Please provide a valid email.",
-        "message": "Please add at least 15 characters of context."
+        "name": "Please tell us your name.",
+        "email": "Please enter a valid email.",
+        "message": "Add at least 15 characters of context."
       }
     },
     "channels": {
       "email": {
-        "title": "Email channel",
-        "detail": "hello@webstar-studio.com"
+        "title": "Primary channel",
+        "detail": "hello@webstar.studio"
       },
-      "phone": {
-        "title": "Direct line",
-        "detail": "+55 81 90000-0000"
+      "scope": {
+        "title": "Ideal scope",
+        "detail": "Platforms, automation, applied AI, strategic UI/UX, and custom digital systems."
       },
       "reply": {
-        "title": "Response window",
-        "detail": "Initial response in up to 24 business hours."
+        "title": "Reply window",
+        "detail": "Initial response within 24 business hours, with no automated sales loop."
       }
     },
-    "trust": {
-      "eyebrow": "Trust signal",
-      "description": "Your context is reviewed by a senior team member. No automated sales loop."
+    "offices": {
+      "eyebrow": "Institutional base",
+      "title": "Physical presence and legal structure",
+      "description": "An international software house with operations across strategic hubs.",
+      "items": [
+        {
+          "title": "Brazil",
+          "detail": "Praca do Derby, 149 — Derby, 52010-140, Recife - PE"
+        },
+        {
+          "title": "Ireland",
+          "detail": "55 Ranelagh, St Peters, Dublin 6, Dublin — Leinster"
+        }
+      ]
+    },
+    "legal": {
+      "eyebrow": "Legal data",
+      "legalName": "Web Star Studio Desenvolvimento de Software LTDA",
+      "cnpj": "CNPJ: 57.717.768/0001-06",
+      "note": "Every inquiry is reviewed by senior leadership before any commercial direction is suggested."
     }
   },
   "footer": {
-    "address_label": "Address",
-    "contact_label": "Contact",
+    "companyLabel": "Web Star Studio",
+    "statement": "Sophisticated digital systems for companies that need more intelligence, clarity, and consistency in the way they grow.",
+    "newsletter": "Follow Webstar across social and editorial channels to receive our weekly insights.",
+    "address_label": "Addresses",
+    "contact_label": "Institutional",
     "socialLabel": "Social",
     "legalLabel": "Explore",
-    "legal": {
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Use",
-      "credits": "Credits"
+    "email": "hello@webstar.studio",
+    "legalName": "Web Star Studio Desenvolvimento de Software LTDA",
+    "cnpj": "CNPJ 57.717.768/0001-06",
+    "offices": {
+      "brazil": {
+        "label": "Brazil",
+        "value": "Praca do Derby, 149 — Derby, 52010-140, Recife - PE"
+      },
+      "ireland": {
+        "label": "Ireland",
+        "value": "55 Ranelagh, St Peters, Dublin 6, Dublin — Leinster"
+      }
     },
-    "copyright": "© {{year}} WEBSTAR STUDIO. ALL RIGHTS RESERVED."
+    "copyright": "© {{year}} WEB STAR STUDIO. ALL RIGHTS RESERVED.",
+    "established": "Since 2011"
   }
 }

@@ -1,0 +1,10 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#050505"/>
+  <rect x="122" y="118" width="1354" height="660" rx="26" fill="#090B0A" stroke="#F3F8F0" stroke-opacity="0.12" stroke-width="2"/>
+  <rect x="184" y="180" width="1230" height="110" rx="18" fill="#0E110D" stroke="#F3F8F0" stroke-opacity="0.08"/>
+  <rect x="184" y="338" width="484" height="378" rx="18" fill="#0B0D0A" stroke="#CFFF28" stroke-opacity="0.28"/>
+  <rect x="718" y="338" width="696" height="174" rx="18" fill="#0B0D0A" stroke="#F3F8F0" stroke-opacity="0.12"/>
+  <rect x="718" y="542" width="696" height="174" rx="18" fill="#0B0D0A" stroke="#F3F8F0" stroke-opacity="0.12"/>
+  <text x="194" y="250" fill="#CFFF28" font-family="Arial, sans-serif" font-size="20" letter-spacing="5">ENGINEERING NOTE</text>
+  <text x="222" y="445" fill="#F3F8F0" font-family="Arial, sans-serif" font-size="54">COMMAND LAYER</text>
+</svg>

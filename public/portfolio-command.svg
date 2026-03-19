@@ -1,0 +1,13 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#040404"/>
+  <rect x="118" y="116" width="1364" height="768" rx="26" fill="#090B09" stroke="#F3F8F0" stroke-opacity="0.12" stroke-width="2"/>
+  <rect x="180" y="186" width="1240" height="108" rx="18" fill="#0E110D" stroke="#F3F8F0" stroke-opacity="0.08"/>
+  <rect x="180" y="340" width="430" height="470" rx="18" fill="#0B0D0A" stroke="#CFFF28" stroke-opacity="0.28"/>
+  <rect x="650" y="340" width="770" height="220" rx="18" fill="#0B0D0A" stroke="#F3F8F0" stroke-opacity="0.12"/>
+  <rect x="650" y="590" width="770" height="220" rx="18" fill="#0B0D0A" stroke="#F3F8F0" stroke-opacity="0.12"/>
+  <text x="218" y="255" fill="#CFFF28" font-family="Arial, sans-serif" font-size="22" letter-spacing="5">WEBSTAR CONTROL LAYER</text>
+  <text x="220" y="448" fill="#F3F8F0" font-family="Arial, sans-serif" font-size="54">COMMAND</text>
+  <text x="220" y="512" fill="#F3F8F0" fill-opacity="0.62" font-family="Arial, sans-serif" font-size="24">Structured operating surface</text>
+  <path d="M770 420H1296" stroke="#CFFF28" stroke-opacity="0.32" stroke-width="2"/>
+  <path d="M770 672H1296" stroke="#CFFF28" stroke-opacity="0.2" stroke-width="2"/>
+</svg>

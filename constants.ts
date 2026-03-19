@@ -1,19 +1,19 @@
 import { Project, Expertise, NewsItem, NavLink } from './types';
 
 export const NAV_LINKS: NavLink[] = [
-  { label: 'Projets', href: '#projects' },
-  { label: 'Expertises', href: '#expertise' },
-  { label: 'Agence', href: '#agency' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Systems', href: '#services-overview' },
+  { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
 
 export const PROJECTS: Project[] = [
-  { id: 1, title: 'LUMINOUS VOID', category: 'Installation', image: 'https://picsum.photos/id/10/800/1000' },
-  { id: 2, title: 'URBAN ECHO', category: 'Sculpture', image: 'https://picsum.photos/id/11/800/600' },
-  { id: 3, title: 'SILENT FORM', category: 'Design', image: 'https://picsum.photos/id/12/800/800' },
-  { id: 4, title: 'AETHER', category: 'Architecture', image: 'https://picsum.photos/id/13/800/1000' },
-  { id: 5, title: 'CHRONOS', category: 'Digital', image: 'https://picsum.photos/id/14/800/700' },
-  { id: 6, title: 'METAMORPHOSIS', category: 'Scenography', image: 'https://picsum.photos/id/15/800/900' },
+  { id: 1, title: 'FOX DELIVERY', category: 'Logistics Platform', image: '/portfolio-orbit.svg' },
+  { id: 2, title: 'DATON', category: 'ESG Intelligence', image: '/portfolio-lattice.svg' },
+  { id: 3, title: 'RANKEY.AI', category: 'AI Platform', image: '/portfolio-signal.svg' },
+  { id: 4, title: 'CPB ADVOCACIA', category: 'Professional Services', image: '/portfolio-command.svg' },
+  { id: 5, title: 'CIRANDA', category: 'Hospitality', image: '/portfolio-orbit.svg' },
+  { id: 6, title: 'VERANNE BRAND', category: 'Retail & E-commerce', image: '/portfolio-signal.svg' },
 ];
 
 export const EXPERTISE: Expertise[] = [
@@ -50,10 +50,10 @@ export const NEWS: NewsItem[] = [
 ];
 
 export const CLIENT_LOGOS = [
-  'Cartier', 'Dior', 'Louis Vuitton', 'Hermès', 'Chanel', 'Moët & Chandon', 'Van Cleef & Arpels'
+  'Fox Delivery', 'Daton', 'Rankey.ai', 'CPB Advocacia', 'Ciranda', 'Lisheen Springs', 'KM Style'
 ];
 
-export const CITIES = ['PARIS', 'SHANGHAI', 'LONDON', 'NEW YORK', 'VENICE', 'MONTPELLIER', 'TOKYO', 'MILAN'];
+export const CITIES = ['RECIFE', 'DUBLIN', 'SAO PAULO', 'LONDON', 'MADRID', 'TORONTO', 'DUBAI', 'NEW YORK'];
 
 // Animation Variants
 export const fadeInUp = {

@@ -1,105 +1,113 @@
 'use client';
 
-import React from 'react';
-import { Layers, PenTool, Code2, Rocket, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const services = [
-  {
-    id: 1,
-    title: 'Strategy',
-    label: 'BUSINESS & PRODUCT',
-    desc: 'Analyzing markets and defining digital roadmaps that align creative vision with measurable business outcomes.',
-    Icon: Layers,
-  },
-  {
-    id: 2,
-    title: 'Design',
-    label: 'DIGITAL EXPERIENCES',
-    desc: 'Crafting interfaces that merge Design Thinking with cutting-edge aesthetics — every pixel is intentional.',
-    Icon: PenTool,
-  },
-  {
-    id: 3,
-    title: 'Engineering',
-    label: 'FULL-STACK DEVELOPMENT',
-    desc: 'Building performant, scalable architectures using modern frameworks and cloud-native infrastructure.',
-    Icon: Code2,
-  },
-  {
-    id: 4,
-    title: 'Growth',
-    label: 'PERFORMANCE & SCALE',
-    desc: 'Deploying data-driven acquisition strategies and conversion optimization to accelerate digital traction.',
-    Icon: Rocket,
-  },
-  {
-    id: 5,
-    title: 'Security',
-    label: 'CYBER & COMPLIANCE',
-    desc: 'Implementing enterprise-grade protection frameworks and ensuring regulatory compliance across all touchpoints.',
-    Icon: ShieldCheck,
-  },
-];
+gsap.registerPlugin(ScrollTrigger);
+
+interface ExpertiseItem {
+  title: string;
+  label: string;
+  desc: string;
+}
 
 const Expertise: React.FC = () => {
+  const { t } = useTranslation();
+  const services = t('expertise.items', { returnObjects: true }) as ExpertiseItem[];
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const pinContainerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (!sectionRef.current || !pinContainerRef.current || services.length === 0) return;
+
+    const trigger = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      pin: pinContainerRef.current,
+      start: 'top top',
+      end: `+=${services.length * 100}%`,
+      // Smooth the scrub so wheel movement feels more deliberate and less jittery.
+      scrub: 0.5,
+      onUpdate: (self) => {
+        const progress = self.progress;
+
+        const newIndex = Math.min(
+          services.length - 1,
+          Math.max(0, Math.floor(progress * services.length)),
+        );
+
+        setActiveIndex(newIndex);
+      },
+    });
+
+    return () => {
+      trigger.kill();
+    };
+  }, { dependencies: [services.length] });
+
   return (
-    <section id="expertise" className="relative w-full flex font-sans">
+    <section
+      id="expertise"
+      ref={sectionRef}
+      className="relative w-full bg-transparent font-sans text-white pointer-events-none"
+    >
+      <div className="pointer-events-none absolute left-1/2 top-[12vh] hidden h-[72vh] w-px -translate-x-px bg-gradient-to-b from-transparent via-white/6 to-transparent md:block" />
 
-      {/* LEFT PANEL: Sticky & Transparent — globe shows through */}
-      <div className="hidden md:flex w-1/2 sticky top-0 h-screen flex-col justify-center items-center bg-transparent">
-          <span className="text-[10px] tracking-[0.5em] font-mono text-white/15 uppercase">
-          SERVICES
-        </span>
-      </div>
+      <div ref={pinContainerRef} className="flex h-screen w-full flex-col md:flex-row">
+        {/* Left side: Empty and totally transparent for the globe */}
+        <div className="relative hidden h-full w-full bg-transparent md:block md:w-1/2" />
 
-      {/* RIGHT PANEL: Individual glass cards over transparent background */}
-      <div className="w-full md:w-1/2 relative flex flex-col gap-6 px-6 pt-6 pb-0 md:pl-0 overflow-x-clip">
-        
-        {/* Ambient Glowing Diagonal Beam (same as menu) */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 -left-1/4 w-[80%] h-[150%] rotate-[32deg] bg-gradient-to-br from-[#cfff28]/10 via-[#345c59]/10 to-transparent blur-[120px]" />
-        </div>
+        {/* Frosted right panel that separates the editorial list from the live 3D background. */}
+        <div className="relative flex h-full w-full flex-col bg-black/20 px-6 pt-[22vh] pointer-events-auto backdrop-blur-[12px] md:w-1/2 md:px-12 lg:px-20">
+          <div className="flex w-full max-w-2xl flex-col">
+            {services.map((service, index) => {
+              const isActive = index === activeIndex;
+              const indexLabel = String(index + 1).padStart(2, '0');
 
-        {/* Cards */}
-        {services.map((service, index) => (
-          <div
-            key={service.id}
-            className="relative w-full min-h-screen ios-glass rounded-[22px] p-12 md:p-16 lg:p-20 flex flex-col justify-between group"
-          >
-            {/* Top Row */}
-            <div className="flex justify-between items-start w-full">
-              <p className="max-w-xs text-base md:text-lg font-light leading-relaxed text-white/40">
-                {service.desc}
-              </p>
-              <div className="p-3 rounded-full border border-white/[0.08] group-hover:bg-neon-lime group-hover:border-neon-lime transition-all duration-300 cursor-pointer shrink-0 ml-8">
-                <ArrowUpRight
-                  size={18}
-                  className="text-white/30 group-hover:text-black group-hover:rotate-45 transition-all duration-300"
-                />
-              </div>
-            </div>
+              return (
+                <article
+                  key={service.title}
+                  className="relative"
+                >
+                  <div
+                    className={`flex items-start gap-6 py-3 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:gap-8 md:py-4 ${
+                      isActive ? 'opacity-100' : 'opacity-25 hover:opacity-50'
+                    }`}
+                  >
+                    <span className="mt-3 text-[10px] font-semibold tracking-[0.3em] text-neon-lime md:mt-4">
+                      [{indexLabel}]
+                    </span>
 
-            {/* Bottom Row: Diagonal Balance */}
-            <div className="flex justify-between items-end w-full">
-              <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-white/20 uppercase">
-                {service.label}
-              </span>
-              <h2
-                className="font-black tracking-tighter leading-[0.85] text-right text-white/80"
-                style={{ fontSize: 'clamp(4rem, 8vw, 10rem)' }}
-              >
-                {service.title}
-              </h2>
-            </div>
+                    <div className="min-w-0 flex-1">
+                      <h2 className="text-[2.5rem] font-black uppercase leading-[0.9] tracking-tighter md:text-[3.5rem] lg:text-[4.2rem]">
+                        {service.title}
+                      </h2>
 
-            {/* Card Index */}
-            <span className="absolute top-12 right-16 text-[10px] font-mono text-white/10 tracking-widest">
-              0{index + 1}
-            </span>
+                      <div
+                        className={`grid transition-[grid-template-rows,opacity,margin-top] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                          isActive ? 'mt-5 grid-rows-[1fr] opacity-100' : 'mt-0 grid-rows-[0fr] opacity-0'
+                        }`}
+                      >
+                        <div className="overflow-hidden">
+                          <div className="space-y-6 pb-4">
+                            <p className="max-w-md text-sm font-light leading-relaxed tracking-wide text-white/60 md:text-base">
+                              {service.desc}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
-        ))}
+        </div>
       </div>
-
     </section>
   );
 };

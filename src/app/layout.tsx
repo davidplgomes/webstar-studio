@@ -43,7 +43,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: 'WEBSTAR',
-  description: 'High-performance WebGL portfolio by Webstar Studio.',
+  description: 'Web Star Studio is an international software house focused on digital ecosystems, applied AI, and design with purpose.',
 };
 
 export default function RootLayout({

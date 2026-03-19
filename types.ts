@@ -52,3 +52,14 @@ export interface NewsArticle {
   content: LocalizedValue<string[]>;
   relatedSlugs: string[];
 }
+
+export interface PortfolioEntry {
+  slug: string;
+  title: LocalizedValue<string>;
+  summary: LocalizedValue<string>;
+  sector: LocalizedValue<string>;
+  country: string;
+  website: string;
+  image: string;
+  featured?: boolean;
+}

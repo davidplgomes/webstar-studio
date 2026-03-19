@@ -8,7 +8,7 @@ import { NEWS, fadeInUp, staggerContainer } from '../constants';
 const News: React.FC = () => {
   const { t } = useTranslation();
   return (
-    <section id="agency" className="py-24 md:py-32 bg-[#000000] text-soft-white border-t border-white/5">
+    <section id="insights" className="py-24 md:py-32 bg-[#000000] text-soft-white border-t border-white/5">
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-16">
           <h2 className="text-sm tracking-[0.3em] uppercase font-display text-neon-lime">{t('news.title')}</h2>

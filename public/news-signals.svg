@@ -1,0 +1,10 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#050505"/>
+  <path d="M126 624C349 518 502 479 667 486C900 496 1064 611 1293 611C1379 611 1453 596 1512 572" stroke="#CFFF28" stroke-width="4" stroke-linecap="round"/>
+  <path d="M126 520C328 438 491 410 650 414C889 421 1050 528 1298 528C1377 528 1455 514 1512 494" stroke="#F3F8F0" stroke-opacity="0.24" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="650" cy="414" r="15" fill="#CFFF28"/>
+  <circle cx="1061" cy="608" r="15" fill="#CFFF28"/>
+  <rect x="126" y="118" width="568" height="232" rx="24" fill="#0A0D09" stroke="#F3F8F0" stroke-opacity="0.12"/>
+  <text x="176" y="198" fill="#CFFF28" font-family="Arial, sans-serif" font-size="20" letter-spacing="5">STRATEGY BRIEF</text>
+  <text x="176" y="280" fill="#F3F8F0" font-family="Arial, sans-serif" font-size="68">SIGNAL SYSTEM</text>
+</svg>

@@ -75,23 +75,25 @@ export default function CinematicGlobe() {
   }, []);
 
   // Custom Shader for the Continents
+  // IMPORTANT: no deps — material must be created once so GSAP uniform refs stay valid.
+  // The globeTexture uniform is updated via useEffect when the texture loads.
   const shaderArgs = useMemo(() => ({
     uniforms: {
-      globeTexture: { value: earthTexture ?? new THREE.Texture() },
+      globeTexture: { value: new THREE.Texture() },
       uOpacity: { value: 0.0 }, // Starts fully invisible!
     },
     vertexShader: `
       varying vec2 vUv;
       const float PI = 3.14159265359;
-      
+
       void main() {
         vec3 normalizedPosition = normalize(position);
         float u = 0.5 + atan(normalizedPosition.z, normalizedPosition.x) / (2.0 * PI);
         float v = 0.5 - asin(normalizedPosition.y) / PI;
         vUv = vec2(u, v);
-        
+
         vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-        gl_PointSize = 2.5; 
+        gl_PointSize = 2.5;
         gl_Position = projectionMatrix * mvPosition;
       }
     `,
@@ -99,7 +101,7 @@ export default function CinematicGlobe() {
       uniform sampler2D globeTexture;
       uniform float uOpacity;
       varying vec2 vUv;
-      
+
       void main() {
         float distanceToCenter = distance(gl_PointCoord, vec2(0.5));
         if (distanceToCenter > 0.5) discard;
@@ -110,13 +112,13 @@ export default function CinematicGlobe() {
         // Premium Green HDR Color bleeding
         vec3 baseColor = vec3(0.2, 0.8, 0.1);
         vec3 hdrColor = baseColor * 4.0;
-        
+
         gl_FragColor = vec4(hdrColor, uOpacity);
       }
     `,
     transparent: true,
-    depthWrite: false, 
-  }), [earthTexture]);
+    depthWrite: false,
+  }), []);
 
   // Push the loaded texture into the existing shader material uniform
   useEffect(() => {

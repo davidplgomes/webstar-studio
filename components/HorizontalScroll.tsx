@@ -43,6 +43,7 @@ const HorizontalScroll: React.FC = () => {
     const { t } = useTranslation();
     const sectionRef = useRef<HTMLDivElement>(null);
     const triggerRef = useRef<HTMLDivElement>(null);
+    const overlayRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -61,6 +62,14 @@ const HorizontalScroll: React.FC = () => {
                         invalidateOnRefresh: true,
                     }
                 });
+
+                if (overlayRef.current) {
+                    tl.to(overlayRef.current, {
+                        opacity: 0,
+                        duration: 0.22,
+                        ease: "power2.out"
+                    }, 0);
+                }
 
                 // Phase 1: Staggered highlight animation for "REALITIES"
                 const bgs = gsap.utils.toArray('.bg-layer');
@@ -94,7 +103,11 @@ const HorizontalScroll: React.FC = () => {
     }, []);
 
     return (
-        <section ref={triggerRef} className="relative h-screen w-full overflow-hidden text-white z-20 bg-black" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 50%, rgba(0,0,0,0.8) 100%)', backdropFilter: 'blur(60px) saturate(180%) brightness(1.1)', WebkitBackdropFilter: 'blur(60px) saturate(180%) brightness(1.1)', borderTop: '1px solid rgba(255,255,255,0.12)', borderBottom: '1px solid rgba(255,255,255,0.08)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -1px 0 rgba(0,0,0,0.2), 0 0 80px rgba(207,255,40,0.03)' }}>
+        <section ref={triggerRef} className="relative h-screen w-full overflow-hidden bg-transparent text-white z-20">
+            <div ref={overlayRef} className="pointer-events-none absolute inset-0">
+                <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-black/20 backdrop-blur-[12px] md:block" />
+                <div className="absolute inset-y-0 right-0 w-full bg-black/20 backdrop-blur-[12px] md:hidden" />
+            </div>
             <div className="absolute top-12 left-12 z-10 flex gap-4 items-center">
                 <span className="h-px w-12 bg-white/40" />
                 <h2 className="text-sm font-bold tracking-widest uppercase text-white/60">{t('projects.title')}</h2>

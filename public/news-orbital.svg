@@ -1,0 +1,8 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#050505"/>
+  <circle cx="1208" cy="205" r="258" stroke="#CFFF28" stroke-opacity="0.36" stroke-width="2"/>
+  <circle cx="1208" cy="205" r="178" stroke="#F3F8F0" stroke-opacity="0.18" stroke-width="2"/>
+  <path d="M132 642C361 511 565 457 874 440C1010 432 1160 436 1467 495" stroke="#F3F8F0" stroke-opacity="0.22" stroke-width="2"/>
+  <text x="122" y="188" fill="#CFFF28" font-family="Arial, sans-serif" font-size="20" letter-spacing="5">CASE STUDY</text>
+  <text x="122" y="288" fill="#F3F8F0" font-family="Arial, sans-serif" font-size="74">ORBITAL COMMERCE</text>
+</svg>

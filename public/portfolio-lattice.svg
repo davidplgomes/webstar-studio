@@ -1,0 +1,22 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#050505"/>
+  <g opacity="0.24">
+    <path d="M188 137H1424" stroke="#F3F8F0"/>
+    <path d="M188 287H1424" stroke="#F3F8F0"/>
+    <path d="M188 437H1424" stroke="#F3F8F0"/>
+    <path d="M188 587H1424" stroke="#F3F8F0"/>
+    <path d="M188 737H1424" stroke="#F3F8F0"/>
+    <path d="M188 887H1424" stroke="#F3F8F0"/>
+    <path d="M288 87V913" stroke="#F3F8F0"/>
+    <path d="M538 87V913" stroke="#F3F8F0"/>
+    <path d="M788 87V913" stroke="#F3F8F0"/>
+    <path d="M1038 87V913" stroke="#F3F8F0"/>
+    <path d="M1288 87V913" stroke="#F3F8F0"/>
+  </g>
+  <rect x="188" y="137" width="600" height="450" rx="28" fill="#0B0D09" stroke="#CFFF28" stroke-opacity="0.34" stroke-width="2"/>
+  <rect x="838" y="287" width="574" height="450" rx="28" fill="#090B0A" stroke="#F3F8F0" stroke-opacity="0.16" stroke-width="2"/>
+  <text x="250" y="236" fill="#CFFF28" font-family="Arial, sans-serif" font-size="20" letter-spacing="5">WEBSTAR GRID</text>
+  <text x="250" y="328" fill="#F3F8F0" font-family="Arial, sans-serif" font-size="68" letter-spacing="1">SYSTEM</text>
+  <text x="250" y="402" fill="#F3F8F0" fill-opacity="0.65" font-family="Arial, sans-serif" font-size="26">Structured information architecture</text>
+  <circle cx="1266" cy="211" r="90" fill="#CFFF28" fill-opacity="0.16"/>
+</svg>

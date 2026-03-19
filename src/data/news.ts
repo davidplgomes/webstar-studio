@@ -5,8 +5,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'orbital-commerce-platform',
     publishedAt: '2026-02-12',
     author: 'Webstar Editorial Team',
-    coverImage:
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2600&auto=format&fit=crop',
+    coverImage: '/news-orbital.svg',
     category: {
       en: 'Case Study',
       pt: 'Estudo de Caso',
@@ -55,8 +54,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'security-command-layer',
     publishedAt: '2026-01-24',
     author: 'Webstar Editorial Team',
-    coverImage:
-      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2600&auto=format&fit=crop',
+    coverImage: '/news-command.svg',
     category: {
       en: 'Engineering',
       pt: 'Engenharia',
@@ -105,22 +103,21 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'signal-driven-content-system',
     publishedAt: '2025-12-18',
     author: 'Webstar Editorial Team',
-    coverImage:
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2600&auto=format&fit=crop',
+    coverImage: '/news-signals.svg',
     category: {
       en: 'Strategy',
       pt: 'Estratégia',
       es: 'Estrategia',
     },
     title: {
-      en: 'Building a signal-driven content system for multi-market growth',
-      pt: 'Construindo um sistema de conteúdo guiado por sinais para crescimento multi-mercado',
-      es: 'Construyendo un sistema de contenido guiado por señales para crecimiento multi-mercado',
+      en: 'Building a signal-driven growth system for multi-market operations',
+      pt: 'Construindo um sistema de crescimento guiado por sinais para operacoes multi-mercado',
+      es: 'Construyendo un sistema de crecimiento guiado por senales para operaciones multi-mercado',
     },
     excerpt: {
-      en: 'How we connected editorial planning, SEO intent clusters, and product messaging into one adaptive publishing model.',
-      pt: 'Como conectamos planejamento editorial, clusters de intenção em SEO e mensagem de produto em um modelo adaptativo de publicação.',
-      es: 'Cómo conectamos planificación editorial, clústeres de intención SEO y mensaje de producto en un modelo de publicación adaptativo.',
+      en: 'How we connected demand signals, product priorities, and automation loops into one adaptive operating model.',
+      pt: 'Como conectamos sinais de demanda, prioridades de produto e loops de automacao em um modelo operacional adaptativo.',
+      es: 'Como conectamos senales de demanda, prioridades de producto y loops de automatizacion en un modelo operativo adaptativo.',
     },
     readTime: {
       en: '5 min read',
@@ -128,25 +125,25 @@ export const NEWS_ARTICLES: NewsArticle[] = [
       es: 'Lectura de 5 min',
     },
     tags: {
-      en: ['SEO', 'Content Ops', 'Growth'],
-      pt: ['SEO', 'Content Ops', 'Growth'],
-      es: ['SEO', 'Content Ops', 'Growth'],
+      en: ['Automation', 'Growth', 'Operations'],
+      pt: ['Automacao', 'Growth', 'Operacoes'],
+      es: ['Automatizacion', 'Growth', 'Operaciones'],
     },
     content: {
       en: [
-        'The client had strong expertise but inconsistent publishing velocity. We implemented a signal-driven content model that links market demand, product priorities, and editorial cadence.',
-        'Each story now enters a modular template with reusable blocks for authority proof, feature education, and conversion context. This reduced production overhead while preserving quality.',
-        'By aligning content operations with performance signals, the team gained a repeatable system for expansion without sacrificing strategic coherence.',
+        'The client had strong internal capability but weak operating rhythm across markets. We implemented a signal-driven growth model linking demand shifts, product priorities, and automated action layers.',
+        'Every decision now passes through a shared operating frame with reusable sequences for qualification, routing, and team visibility. This lowered execution overhead while improving consistency.',
+        'By aligning operational loops with measurable signals, the company gained a repeatable expansion system without sacrificing strategic coherence.',
       ],
       pt: [
-        'O cliente tinha alta expertise, mas velocidade de publicação inconsistente. Implementamos um modelo de conteúdo guiado por sinais que conecta demanda de mercado, prioridades de produto e cadência editorial.',
-        'Cada história agora entra em um template modular com blocos reutilizáveis para prova de autoridade, educação de features e contexto de conversão. Isso reduziu o custo operacional sem perder qualidade.',
-        'Ao alinhar operações de conteúdo com sinais de performance, o time ganhou um sistema repetível para expansão sem perder coerência estratégica.',
+        'O cliente tinha alta capacidade interna, mas pouco ritmo operacional entre mercados. Implementamos um modelo de crescimento guiado por sinais conectando mudancas de demanda, prioridades de produto e camadas de automacao.',
+        'Cada decisao passou a seguir um frame operacional compartilhado com sequencias reutilizaveis para qualificacao, roteamento e visibilidade de time. Isso reduziu custo de execucao e aumentou consistencia.',
+        'Ao alinhar loops operacionais com sinais mensuraveis, a empresa ganhou um sistema repetivel de expansao sem perder coerencia estrategica.',
       ],
       es: [
-        'El cliente tenía alta expertise pero velocidad de publicación inconsistente. Implementamos un modelo de contenido guiado por señales que conecta demanda de mercado, prioridades de producto y cadencia editorial.',
-        'Cada historia entra ahora en una plantilla modular con bloques reutilizables para prueba de autoridad, educación de funcionalidades y contexto de conversión. Esto redujo el costo operativo sin perder calidad.',
-        'Al alinear operaciones de contenido con señales de rendimiento, el equipo obtuvo un sistema repetible para escalar sin perder coherencia estratégica.',
+        'El cliente tenia una capacidad interna fuerte pero poco ritmo operativo entre mercados. Implementamos un modelo de crecimiento guiado por senales que conecta cambios de demanda, prioridades de producto y capas de automatizacion.',
+        'Cada decision ahora sigue un marco operativo compartido con secuencias reutilizables para cualificacion, ruteo y visibilidad del equipo. Esto redujo el costo de ejecucion y mejoro la consistencia.',
+        'Al alinear loops operativos con senales medibles, la empresa obtuvo un sistema repetible para escalar sin perder coherencia estrategica.',
       ],
     },
     relatedSlugs: ['orbital-commerce-platform', 'security-command-layer'],

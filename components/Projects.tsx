@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
 import { PROJECTS } from '../constants';
 
 const Projects: React.FC = () => {
@@ -54,9 +55,9 @@ const Projects: React.FC = () => {
               </>
             )}
           </h2>
-          <button className="hidden md:flex items-center gap-2 border border-neon-lime text-neon-lime px-6 py-3 rounded-full text-xs tracking-widest uppercase hover:bg-neon-lime hover:text-[#000000] transition-all duration-300">
+          <Link href="/portfolio" className="hidden md:flex items-center gap-2 border border-neon-lime text-neon-lime px-6 py-3 rounded-full text-xs tracking-widest uppercase hover:bg-neon-lime hover:text-[#000000] transition-all duration-300">
             {t('projects.view_all')} <ArrowUpRight size={16} />
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
@@ -111,9 +112,9 @@ const Projects: React.FC = () => {
         </div>
 
         <div className="mt-12 md:hidden flex justify-center">
-          <button className="flex items-center gap-2 border border-neon-lime text-neon-lime px-8 py-4 rounded-full text-xs tracking-widest uppercase hover:bg-neon-lime hover:text-[#000000] transition-all duration-300">
+          <Link href="/portfolio" className="flex items-center gap-2 border border-neon-lime text-neon-lime px-8 py-4 rounded-full text-xs tracking-widest uppercase hover:bg-neon-lime hover:text-[#000000] transition-all duration-300">
             {t('projects.view_all')} <ArrowUpRight size={16} />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

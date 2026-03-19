@@ -71,9 +71,9 @@ const Intro: React.FC = () => {
 
   }, { scope: containerRef });
 
-  const giantText = "REBORN";
-  const revealHeadline = "REDEFINE THE EXPERIENCE";
-  const description = "We are an independent digital agency that creates boundary-pushing experiences for the modern web. We believe in the power of design to elevate brands and create lasting impressions.";
+  const giantText = t('intro.backgroundWord');
+  const revealHeadline = `${t('intro.line1')} ${t('intro.line2')}`;
+  const description = t('intro.desc1');
 
   return (
     <section
