@@ -363,3 +363,56 @@ export function PageCTA({ eyebrow, title, buttonText, href }: PageCTAProps) {
     </motion.div>
   );
 }
+
+/* ─── GiantBgText — massive ghost typography like homepage Intro ─── */
+
+interface GiantBgTextProps {
+  text: string;
+  className?: string;
+}
+
+export function GiantBgText({ text, className }: GiantBgTextProps) {
+  return (
+    <motion.h2
+      className={cx(
+        'pointer-events-none select-none whitespace-nowrap text-[20vw] font-black uppercase tracking-tighter text-white/[0.03]',
+        className
+      )}
+      style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.06)' }}
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 1.2, ease: EASE }}
+    >
+      {text}
+    </motion.h2>
+  );
+}
+
+/* ─── EditorialQuote — Cormorant Garamond italic pull quote ─── */
+
+interface EditorialQuoteProps {
+  text: string;
+  kicker?: string;
+  className?: string;
+}
+
+export function EditorialQuote({ text, kicker, className }: EditorialQuoteProps) {
+  return (
+    <motion.article
+      className={cx('page-panel relative', className)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={VIEWPORT}
+      variants={pageMotion.fadeUp}
+    >
+      <span className="pointer-events-none absolute -left-2 -top-8 select-none font-editorial text-[8rem] leading-none text-neon-lime/20">
+        &ldquo;
+      </span>
+      {kicker ? <p className="page-kicker">{kicker}</p> : null}
+      <p className="mt-5 font-editorial text-[clamp(1.5rem,3.5vw,3rem)] italic leading-[1.2] text-white/85">
+        {text}
+      </p>
+    </motion.article>
+  );
+}

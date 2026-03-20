@@ -39,20 +39,6 @@ export interface NavItem {
   hash?: string;
 }
 
-export interface NewsArticle {
-  slug: string;
-  publishedAt: string;
-  author: string;
-  coverImage: string;
-  category: LocalizedValue<string>;
-  title: LocalizedValue<string>;
-  excerpt: LocalizedValue<string>;
-  readTime: LocalizedValue<string>;
-  tags: LocalizedValue<string[]>;
-  content: LocalizedValue<string[]>;
-  relatedSlugs: string[];
-}
-
 export interface PortfolioEntry {
   slug: string;
   title: LocalizedValue<string>;

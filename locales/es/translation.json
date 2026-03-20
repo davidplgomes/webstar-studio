@@ -83,7 +83,11 @@
       "eyebrow": "Servicios",
       "title": "Arquitectura digital para crecimiento predecible",
       "description": "Construimos ecosistemas digitales a medida que unen estrategia, desarrollo, automatizacion y diseno en un solo modelo de entrega.",
-      "aside": "Estructura basada en diagnostico, ejecucion senior y diseno con impacto medible."
+      "aside": "Estructura basada en diagnostico, ejecucion senior y diseno con impacto medible.",
+      "statementStart": "Antes de prototipar,",
+      "statementAccent": "cuestionamos",
+      "statementEnd": ", exploramos y construimos ideas con intencion.",
+      "scrollLabel": "Bajar a los servicios"
     },
     "offerings": {
       "eyebrow": "Lo que construimos",
@@ -113,6 +117,69 @@
         {
           "title": "Entrega web y mobile",
           "description": "Experiencias multiplataforma construidas para usabilidad, mantenimiento e impacto de negocio."
+        }
+      ]
+    },
+    "breakdown": {
+      "navLabel": "Mapa de servicios",
+      "indicatorLabel": "Ruta activa",
+      "sectionLabel": "Bloque de arquitectura",
+      "listLabel": "Modulos de ejecucion",
+      "sections": [
+        {
+          "title": "Plataformas y sistemas web",
+          "descriptionPrimary": "Disenamos y construimos productos digitales a medida donde rendimiento, usabilidad y claridad operativa forman parte del mismo sistema.",
+          "descriptionSecondary": "El trabajo suele combinar arquitectura de informacion, sistemas de interfaz, base tecnica y logica backend para escalar sin perder coherencia.",
+          "subservices": [
+            "Descubrimiento de plataforma y definicion de alcance",
+            "Dashboards a medida y herramientas internas",
+            "Interfaces publicas orientadas a conversion",
+            "Frontends con enfoque absoluto en rendimiento"
+          ]
+        },
+        {
+          "title": "Automatizacion de procesos",
+          "descriptionPrimary": "Los proyectos de automatizacion eliminan trabajo manual repetitivo, conectan herramientas fragmentadas y reducen friccion en toda la operacion.",
+          "descriptionSecondary": "Primero mapeamos los cuellos de botella y luego los convertimos en flujos confiables, disparadores, integraciones y reglas de excepcion que el equipo pueda usar con confianza.",
+          "subservices": [
+            "Mapeo de workflows y diseno de automatizacion",
+            "Integraciones de API y capas de orquestacion",
+            "Alertas operativas y logica de aprobacion",
+            "Rutinas de back office conectadas"
+          ]
+        },
+        {
+          "title": "IA aplicada al negocio",
+          "descriptionPrimary": "La IA aplicada debe mejorar decisiones y operaciones reales, no quedarse como un experimento desconectado del negocio.",
+          "descriptionSecondary": "Conectamos capas inteligentes a servicio, ventas, busqueda de conocimiento, analisis interno y flujos de soporte con limites claros y resultados medibles.",
+          "subservices": [
+            "Asistentes de IA para operacion y soporte",
+            "Sistemas de busqueda y recuperacion de conocimiento",
+            "Calificacion de leads y logica de respuesta",
+            "Flujos de apoyo a la decision"
+          ]
+        },
+        {
+          "title": "UI/UX estrategico",
+          "descriptionPrimary": "Tratamos el diseno de interfaz como arquitectura: como se mueve el usuario, como se encuadra la informacion y como se construye confianza en cada paso.",
+          "descriptionSecondary": "Combinamos sensibilidad de marca con realismo tecnico para que design systems, prototipos e interfaces finales permanezcan alineados desde el concepto hasta el lanzamiento.",
+          "subservices": [
+            "Mapeo de experiencia y recorridos",
+            "Wireframes y sistemas de interaccion",
+            "Design systems y gobernanza visual",
+            "Interfaces de producto en alta fidelidad"
+          ]
+        },
+        {
+          "title": "Arquitectura de ecosistemas digitales",
+          "descriptionPrimary": "Cuando la empresa supera el limite de herramientas aisladas, disenamos un modelo operativo mas claro donde sistemas, infraestructura y datos funcionan como un solo entorno.",
+          "descriptionSecondary": "Eso implica definir responsabilidades, logica de integracion, prioridades tecnicas y una base lista para el futuro antes de que la complejidad empiece a multiplicarse.",
+          "subservices": [
+            "Auditoria de sistemas y diagnostico del ecosistema",
+            "Definicion de stack e infraestructura",
+            "Planificacion de flujo de datos e integraciones",
+            "Roadmaps para operacion digital escalable"
+          ]
         }
       ]
     },
@@ -507,10 +574,21 @@
     "companyLabel": "Web Star Studio",
     "statement": "Sistemas digitales sofisticados para empresas que necesitan mas inteligencia, claridad y consistencia en su forma de crecer.",
     "newsletter": "Sigue a Webstar en social y en nuestro flujo editorial para recibir insights semanales.",
+    "cta": {
+      "line1": "Vamos a",
+      "line2": "crear",
+      "line3": "juntos.",
+      "button": "Iniciar conversacion"
+    },
     "address_label": "Direcciones",
     "contact_label": "Institucional",
     "socialLabel": "Social",
     "legalLabel": "Explorar",
+    "contactCard": {
+      "title": "Contacto"
+    },
+    "careersCopy": "Unete al equipo y ayudanos a disenar sistemas digitales ambiciosos con claridad y criterio.",
+    "careersLink": "Explorar carreras",
     "email": "hello@webstar.studio",
     "legalName": "Web Star Studio Desenvolvimento de Software LTDA",
     "cnpj": "CNPJ 57.717.768/0001-06",

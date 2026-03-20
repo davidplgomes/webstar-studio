@@ -9,8 +9,6 @@ const pageLinks = [
   { id: 'services', href: '/services', key: 'nav.services' },
   { id: 'about', href: '/about', key: 'nav.about' },
   { id: 'portfolio', href: '/portfolio', key: 'nav.portfolio' },
-  { id: 'careers', href: '/careers', key: 'nav.careers' },
-  { id: 'news', href: '/news', key: 'nav.news' },
   { id: 'contact', href: '/contact', key: 'nav.contact' },
 ];
 
@@ -25,7 +23,7 @@ export default function HomeRouteBand() {
           <p className="max-w-xl text-right text-white/45">{t('homeRoutes.description')}</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-6">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
           {pageLinks.map((item, index) => (
             <motion.div
               key={item.id}

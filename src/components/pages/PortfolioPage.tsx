@@ -1,205 +1,286 @@
 'use client';
 
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { ArrowUpRight } from 'lucide-react';
 
-import Projects from '../../../components/Projects';
 import SiteShell from '@/components/layout/SiteShell';
-import { PageCTA, PageHero, PageSection, PageShell, SectionIntro, StatStrip, pageMotion, VIEWPORT } from '@/components/pages/PagePrimitives';
 import { PORTFOLIO_ENTRIES } from '@/data/portfolio';
 import { pickLocalized } from '@/lib/locale';
+import Footer from '../../../components/Footer';
+import Projects from '../../../components/Projects';
+
+const PROJECT_VISUALS: Record<string, string> = {
+  'fox-delivery': 'https://images.unsplash.com/photo-1494412685616-a5d310fbb07d?q=80&w=2400&auto=format&fit=crop',
+  daton: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=2400&auto=format&fit=crop',
+  'rankey-ai': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2400&auto=format&fit=crop',
+  'cpb-advocacia': 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2400&auto=format&fit=crop',
+  'affordable-granite-florida': 'https://images.unsplash.com/photo-1618221469555-7f3ad97540d6?q=80&w=2400&auto=format&fit=crop',
+  ciranda: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2400&auto=format&fit=crop',
+  'lisheen-springs-golf-club': 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2400&auto=format&fit=crop',
+  'veranne-brand': 'https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2400&auto=format&fit=crop',
+};
+
+function splitHeadline(text: string, lineCount = 3) {
+  const words = text.trim().split(/\s+/).filter(Boolean);
+  const chunkSize = Math.max(1, Math.ceil(words.length / lineCount));
+  const lines: string[] = [];
+
+  for (let index = 0; index < words.length; index += chunkSize) {
+    lines.push(words.slice(index, index + chunkSize).join(' '));
+  }
+
+  return lines;
+}
 
 export default function PortfolioPage() {
   const { t, i18n } = useTranslation();
-  const [activeSector, setActiveSector] = useState('all');
   const locale = i18n.language;
+  const heroTitle = t('portfolio.hero.title');
 
-  const metrics = t('portfolio.metrics.items', { returnObjects: true }) as Array<{ label: string; value: string }>;
+  const [sectorFilter, setSectorFilter] = useState<string>('all');
+  const [countryFilter, setCountryFilter] = useState<string>('all');
 
-  const categories = useMemo(() => {
-    const sectors = PORTFOLIO_ENTRIES.map((item) => pickLocalized(item.sector, locale));
-    return ['all', ...Array.from(new Set(sectors))];
-  }, [locale]);
+  const sectors = useMemo(
+    () => Array.from(new Set(PORTFOLIO_ENTRIES.map((entry) => pickLocalized(entry.sector, locale)))),
+    [locale]
+  );
+  const countries = useMemo(() => Array.from(new Set(PORTFOLIO_ENTRIES.map((entry) => entry.country))), []);
 
-  const featured = PORTFOLIO_ENTRIES.find((item) => item.featured) ?? PORTFOLIO_ENTRIES[0];
-  const filtered = activeSector === 'all'
-    ? PORTFOLIO_ENTRIES
-    : PORTFOLIO_ENTRIES.filter((item) => pickLocalized(item.sector, locale) === activeSector);
+  const filteredEntries = useMemo(
+    () =>
+      PORTFOLIO_ENTRIES.filter((entry) => {
+        const sector = pickLocalized(entry.sector, locale);
+        const matchesSector = sectorFilter === 'all' || sector === sectorFilter;
+        const matchesCountry = countryFilter === 'all' || entry.country === countryFilter;
+        return matchesSector && matchesCountry;
+      }),
+    [countryFilter, locale, sectorFilter]
+  );
 
-  /* ─── Featured image parallax ─── */
-  const imageRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: imageRef, offset: ['start end', 'end start'] });
-  const imageY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
+  const featuredEntry = filteredEntries.find((entry) => entry.featured) ?? null;
+  const showcaseEntries = filteredEntries;
+  const heroLines = useMemo(() => splitHeadline(heroTitle, 3), [heroTitle]);
+  const activeSectorLabel = sectorFilter === 'all' ? t('portfolio.filters.all') : sectorFilter;
+  const activeCountryLabel = countryFilter === 'all' ? t('portfolio.filters.all') : countryFilter;
 
   return (
-    <SiteShell withBackground withCursor>
-      <PageShell>
-        <PageHero
-          eyebrow={t('portfolio.hero.eyebrow')}
-          title={t('portfolio.hero.title')}
-          description={t('portfolio.hero.description')}
-          aside={<p className="max-w-xl text-sm uppercase tracking-[0.22em] text-white/38">{t('portfolio.hero.aside')}</p>}
-        />
-
-        {/* ─── Metrics ─── */}
-        <PageSection className="mt-16">
-          <StatStrip items={metrics} />
-        </PageSection>
-
-        <Projects />
-
-        {/* ─── Featured Project — cinematic showcase ─── */}
-        <PageSection>
-          <SectionIntro
-            eyebrow={t('portfolio.featured.eyebrow')}
-            title={t('portfolio.featured.title')}
-            description={t('portfolio.featured.description')}
-          />
-
-          <motion.article
-            initial="hidden"
-            whileInView="visible"
-            viewport={VIEWPORT}
-            variants={pageMotion.fadeUp}
-          >
-            {/* Cinematic 21:9 image with parallax */}
-            <div
-              ref={imageRef}
-              className="overflow-hidden rounded-sm border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(207,255,40,0.12),_transparent_48%),linear-gradient(180deg,rgba(10,10,10,0.88),rgba(6,6,6,0.98))]"
-              style={{ aspectRatio: '21/9' }}
-            >
-              <motion.img
-                src={featured.image}
-                alt={pickLocalized(featured.title, locale)}
-                className="h-[120%] w-full object-cover"
-                style={{ y: imageY }}
-              />
-            </div>
-
-            {/* Details below image */}
-            <div className="mt-6 grid gap-6 lg:grid-cols-[2fr_1fr]">
-              <div>
-                <p className="page-kicker">{pickLocalized(featured.sector, locale)} / {featured.country}</p>
-                <h2 className="mt-4 font-display text-4xl uppercase leading-[0.94] text-white md:text-5xl">
-                  {pickLocalized(featured.title, locale)}
-                </h2>
-                <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/64">
-                  {pickLocalized(featured.summary, locale)}
+    <SiteShell withBackground>
+      <div className="min-h-screen bg-transparent text-white selection:bg-neon-lime selection:text-black">
+        <section id="globe-trigger" className="relative h-screen overflow-hidden bg-transparent text-white">
+          <div className="relative z-10 flex h-full flex-col px-6 md:px-12 lg:px-16">
+            <div className="flex h-full flex-col justify-center pt-24">
+              <div className="w-full max-w-[1400px]">
+                {heroLines.map((line, index) => (
+                  <h1
+                    key={`${line}-${index}`}
+                    className={`font-display text-[15vw] uppercase leading-[0.82] tracking-[-0.07em] md:text-[9vw] lg:text-[6.6vw] ${
+                      index === 1 ? 'font-light text-white/32' : index === heroLines.length - 1 ? 'font-bold text-white' : 'text-white'
+                    }`}
+                  >
+                    {line}
+                  </h1>
+                ))}
+                <p className="mt-8 max-w-3xl font-editorial text-[clamp(1.18rem,1.9vw,1.75rem)] italic leading-[1.34] text-white/80">
+                  {t('portfolio.hero.description')}
                 </p>
               </div>
-              <div className="flex flex-col items-start gap-4 lg:items-end lg:justify-end">
-                <span className="page-chip">{featured.country}</span>
-                <Link
-                  href={featured.website}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group inline-flex items-center gap-2 text-sm uppercase tracking-[0.22em] text-neon-lime transition-colors hover:text-white"
-                >
-                  {t('portfolio.featured.visit')}
-                  <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:rotate-45" />
-                </Link>
+            </div>
+
+            <div className="border-t border-white/10 pb-6 pt-5 md:pb-8">
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:items-end">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.24em] text-white/30">{t('portfolio.featured.eyebrow')}</p>
+                  <div className="mt-4 space-y-3">
+                    {(filteredEntries.length ? filteredEntries : PORTFOLIO_ENTRIES).slice(0, 3).map((entry, index) => (
+                      <p key={`${entry.slug}-${index}`} className="font-display text-2xl uppercase leading-[0.9] tracking-[-0.05em] text-white/82">
+                        {pickLocalized(entry.title, locale)}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.24em] text-white/30">{t('portfolio.grid.eyebrow')}</p>
+                  <p className="mt-4 max-w-3xl font-display text-3xl uppercase leading-[0.9] tracking-[-0.05em] text-white">
+                    {String(filteredEntries.length).padStart(2, '0')} projects / {activeSectorLabel} / {activeCountryLabel}
+                  </p>
+                  <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/58 md:text-base">
+                    {t('portfolio.grid.description')}
+                  </p>
+                </div>
               </div>
             </div>
-          </motion.article>
-        </PageSection>
+          </div>
+        </section>
 
-        {/* ─── Portfolio Grid with animated filter underline ─── */}
-        <PageSection>
-          <SectionIntro
-            eyebrow={t('portfolio.grid.eyebrow')}
-            title={t('portfolio.grid.title')}
-            description={t('portfolio.grid.description')}
-          />
-
-          {/* Filter with animated underline indicator */}
-          <div className="mb-8 flex flex-wrap gap-5">
-            {categories.map((category) => {
-              const isActive = activeSector === category;
-              return (
+        <section className="bg-black/92 px-6 py-10 md:px-12 md:py-12 lg:px-16">
+          <div className="relative z-10 mx-auto w-full max-w-[1500px] border-t border-white/10 py-6">
+            <div className="grid gap-5 xl:grid-cols-[1fr_1fr]">
+              <div className="flex flex-wrap gap-x-4 gap-y-2">
                 <button
-                  key={category}
-                  onClick={() => setActiveSector(category)}
-                  className="relative pb-2 text-xs uppercase tracking-[0.22em] transition-colors"
+                  type="button"
+                  onClick={() => setSectorFilter('all')}
+                  className={`pb-1 text-xs uppercase tracking-[0.18em] ${
+                    sectorFilter === 'all' ? 'border-b border-neon-lime text-neon-lime' : 'text-white/46 hover:text-white'
+                  }`}
+                  aria-pressed={sectorFilter === 'all'}
                 >
-                  {isActive && (
-                    <motion.span
-                      layoutId="portfolioActiveFilter"
-                      className="absolute bottom-0 left-0 right-0 h-px bg-neon-lime"
-                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                  <span className={isActive ? 'text-neon-lime' : 'text-white/50 hover:text-white'}>
-                    {category === 'all' ? t('portfolio.filters.all') : category}
-                  </span>
+                  {t('portfolio.filters.all')}
                 </button>
-              );
-            })}
-          </div>
-
-          {/* Masonry-style grid: every 3rd card spans 2 columns */}
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {filtered.map((entry, i) => {
-              const isWide = i % 3 === 0;
-              return (
-                <motion.article
-                  key={entry.slug}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={VIEWPORT}
-                  variants={pageMotion.rotateIn}
-                  className={`group page-panel p-0 ${isWide ? 'md:col-span-2' : ''}`}
-                  style={{ perspective: '600px' }}
-                >
-                  <div className="relative overflow-hidden border-b border-white/10 bg-[linear-gradient(180deg,rgba(15,15,15,0.8),rgba(8,8,8,0.95))] p-4">
-                    <img
-                      src={entry.image}
-                      alt={pickLocalized(entry.title, locale)}
-                      className={`w-full rounded-sm border border-white/10 object-cover transition-transform duration-700 group-hover:scale-105 ${
-                        isWide ? 'h-64 md:h-80' : 'h-56'
+                {sectors.map((sector) => {
+                  const isActive = sectorFilter === sector;
+                  return (
+                    <button
+                      key={sector}
+                      type="button"
+                      onClick={() => setSectorFilter(sector)}
+                      className={`pb-1 text-xs uppercase tracking-[0.18em] ${
+                        isActive ? 'border-b border-neon-lime text-neon-lime' : 'text-white/46 hover:text-white'
                       }`}
-                    />
-                    {/* Hover overlay */}
-                    <div className="absolute inset-4 flex items-center justify-center rounded-sm bg-black/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      <ArrowUpRight size={32} className="text-neon-lime" />
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-5 p-6">
-                    <div>
-                      <p className="page-kicker">{pickLocalized(entry.sector, locale)} / {entry.country}</p>
-                      <h3 className="mt-4 text-2xl uppercase leading-tight text-white transition-colors group-hover:text-neon-lime">
-                        {pickLocalized(entry.title, locale)}
-                      </h3>
-                      <p className="mt-3 text-white/60">{pickLocalized(entry.summary, locale)}</p>
-                    </div>
-                    <Link
-                      href={entry.website}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-neon-lime transition-colors hover:text-white"
+                      aria-pressed={isActive}
                     >
-                      {t('portfolio.grid.visit')}
-                      <ArrowUpRight size={16} />
-                    </Link>
-                  </div>
-                </motion.article>
-              );
-            })}
-          </div>
-        </PageSection>
+                      {sector}
+                    </button>
+                  );
+                })}
+              </div>
 
-        {/* ─── CTA ─── */}
-        <PageSection>
-          <PageCTA
-            eyebrow={t('portfolio.cta.eyebrow')}
-            title={t('portfolio.cta.title')}
-            buttonText={t('portfolio.cta.button')}
-            href="/contact"
-          />
-        </PageSection>
-      </PageShell>
+              <div className="flex flex-wrap gap-x-4 gap-y-2 xl:justify-end">
+                <button
+                  type="button"
+                  onClick={() => setCountryFilter('all')}
+                  className={`pb-1 text-xs uppercase tracking-[0.18em] ${
+                    countryFilter === 'all' ? 'border-b border-neon-lime text-neon-lime' : 'text-white/46 hover:text-white'
+                  }`}
+                  aria-pressed={countryFilter === 'all'}
+                >
+                  {t('portfolio.filters.all')}
+                </button>
+                {countries.map((country) => {
+                  const isActive = countryFilter === country;
+                  return (
+                    <button
+                      key={country}
+                      type="button"
+                      onClick={() => setCountryFilter(country)}
+                      className={`pb-1 text-xs uppercase tracking-[0.18em] ${
+                        isActive ? 'border-b border-neon-lime text-neon-lime' : 'text-white/46 hover:text-white'
+                      }`}
+                      aria-pressed={isActive}
+                    >
+                      {country}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Projects showViewAll={false} />
+
+        <section className="bg-black/86 px-6 py-14 md:px-12 md:py-16 lg:px-16 lg:py-20">
+          <div className="mx-auto w-full max-w-7xl">
+            <div className="mb-12 border-t border-white/10 pt-6 md:mb-16">
+              <p className="text-[10px] uppercase tracking-[0.24em] text-neon-lime">{t('portfolio.grid.title')}</p>
+              <div className="mt-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <h2 className="max-w-4xl font-display text-4xl uppercase leading-[0.82] tracking-[-0.04em] md:text-6xl">
+                  {featuredEntry ? pickLocalized(featuredEntry.title, locale) : t('portfolio.grid.title')}
+                </h2>
+                <p className="text-[10px] uppercase tracking-[0.22em] text-white/42">
+                  {String(showcaseEntries.length).padStart(2, '0')} / {t('portfolio.filters.all')}
+                </p>
+              </div>
+            </div>
+
+            {showcaseEntries.length ? (
+              <div className="space-y-16 md:space-y-20">
+                {showcaseEntries.map((entry, index) => {
+                  const reverse = index % 2 === 1;
+                  const image = PROJECT_VISUALS[entry.slug] ?? entry.image;
+
+                  return (
+                    <motion.article
+                      key={entry.slug}
+                      initial={{ opacity: 0, y: 28 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.25 }}
+                      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      className="relative border-b border-white/10 pb-14 md:pb-16"
+                    >
+                      <div className="pointer-events-none absolute right-0 top-0 hidden font-display text-[8rem] uppercase leading-none tracking-[-0.08em] text-white/[0.05] md:block">
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
+
+                      <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+                        <div className={`${reverse ? 'lg:order-2' : ''} relative overflow-hidden`}>
+                          <img src={image} alt={pickLocalized(entry.title, locale)} className="h-[40svh] w-full object-cover md:h-[58svh]" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/76 via-black/8 to-black/18" />
+                        </div>
+
+                        <div className={`${reverse ? 'lg:order-1' : ''}`}>
+                          <p className="text-[10px] uppercase tracking-[0.24em] text-neon-lime">
+                            {String(index + 1).padStart(2, '0')} / {pickLocalized(entry.sector, locale)}
+                          </p>
+                          <h3 className="mt-4 max-w-3xl font-display text-4xl uppercase leading-[0.82] tracking-[-0.04em] md:text-6xl">
+                            {pickLocalized(entry.title, locale)}
+                          </h3>
+                          <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/68 md:text-lg">
+                            {pickLocalized(entry.summary, locale)}
+                          </p>
+                          <p className="mt-5 text-[10px] uppercase tracking-[0.22em] text-white/52">{entry.country}</p>
+                          <Link
+                            href={entry.website}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="group mt-8 inline-flex w-fit items-center gap-2 border-b border-white/35 pb-1 text-xs uppercase tracking-[0.2em] text-white/82 hover:border-neon-lime hover:text-neon-lime"
+                          >
+                            {t('portfolio.grid.visit')}
+                            <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                          </Link>
+                        </div>
+                      </div>
+                    </motion.article>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="py-20 text-center">
+                <h3 className="font-display text-4xl uppercase leading-[0.84] tracking-[-0.04em] md:text-6xl">
+                  {t('portfolio.grid.title')}
+                </h3>
+                <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/62">{t('portfolio.grid.description')}</p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSectorFilter('all');
+                    setCountryFilter('all');
+                  }}
+                  className="mt-8 border-b border-neon-lime pb-1 text-xs uppercase tracking-[0.2em] text-neon-lime"
+                >
+                  {t('portfolio.filters.all')}
+                </button>
+              </div>
+            )}
+          </div>
+        </section>
+
+        <section className="border-y border-white/10 bg-black/92 px-6 py-12 md:px-12 lg:px-16">
+          <div className="mx-auto grid w-full max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {(t('portfolio.metrics.items', { returnObjects: true }) as Array<{ label: string; value: string }>).map((item, index) => (
+              <div key={`${item.label}-${index}`}>
+                <p className="font-display text-5xl uppercase tracking-[-0.04em] md:text-6xl">{item.value}</p>
+                <p className="mt-3 text-xs uppercase tracking-[0.16em] text-white/55">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <Footer />
+      </div>
     </SiteShell>
   );
 }

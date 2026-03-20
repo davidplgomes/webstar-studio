@@ -1,15 +1,9 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { CLIENT_LOGOS } from '../constants';
 
 const Logos: React.FC = () => {
-  const { t } = useTranslation();
   return (
-    <section className="py-24 bg-[#000000] overflow-hidden border-t border-white/5">
-      <div className="mb-12 text-center">
-        <h3 className="text-xs tracking-[0.3em] uppercase text-neon-lime font-display">{t('logos.trusted_by')}</h3>
-      </div>
-
+    <section className="py-20 overflow-hidden">
       <div className="relative flex overflow-x-hidden">
         <div className="animate-marquee whitespace-nowrap flex gap-16 md:gap-32 items-center">
           {/* Double the list for seamless loop */}

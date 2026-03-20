@@ -83,7 +83,11 @@
       "eyebrow": "Services",
       "title": "Digital architecture for predictable growth",
       "description": "We build custom digital ecosystems that unify strategy, development, automation, and design inside one delivery model.",
-      "aside": "Built around diagnosis, senior execution, and measurable design intent."
+      "aside": "Built around diagnosis, senior execution, and measurable design intent.",
+      "statementStart": "Before we prototype,",
+      "statementAccent": "we question",
+      "statementEnd": ", explore, and craft ideas with intent.",
+      "scrollLabel": "Scroll to services"
     },
     "offerings": {
       "eyebrow": "What we build",
@@ -113,6 +117,69 @@
         {
           "title": "Web and mobile delivery",
           "description": "Cross-platform experiences built for usability, maintainability, and measurable business impact."
+        }
+      ]
+    },
+    "breakdown": {
+      "navLabel": "Service map",
+      "indicatorLabel": "Active track",
+      "sectionLabel": "Architecture block",
+      "listLabel": "Execution modules",
+      "sections": [
+        {
+          "title": "Web platforms and systems",
+          "descriptionPrimary": "We design and build custom digital products where performance, usability, and operational clarity are treated as part of the same system.",
+          "descriptionSecondary": "The work usually spans information architecture, interface systems, technical foundations, and backend logic so the platform can scale without losing coherence.",
+          "subservices": [
+            "Platform discovery and scope definition",
+            "Custom dashboards and internal tools",
+            "Conversion-focused public interfaces",
+            "Performance-first frontend systems"
+          ]
+        },
+        {
+          "title": "Process automation",
+          "descriptionPrimary": "Automation projects remove repeated manual work, connect fragmented tools, and reduce execution friction across the company.",
+          "descriptionSecondary": "We map the bottlenecks first, then translate them into reliable flows, triggers, integrations, and exception handling that teams can actually trust.",
+          "subservices": [
+            "Workflow mapping and automation design",
+            "API integrations and orchestration layers",
+            "Operational alerts and approval logic",
+            "Connected back-office routines"
+          ]
+        },
+        {
+          "title": "AI applied to business",
+          "descriptionPrimary": "Applied AI should improve real decisions and operations, not sit beside them as a disconnected experiment.",
+          "descriptionSecondary": "We connect intelligent layers to service, sales, knowledge retrieval, internal analysis, and support workflows with clear boundaries and measurable outcomes.",
+          "subservices": [
+            "AI assistants for operations and support",
+            "Knowledge retrieval and search systems",
+            "Lead qualification and response logic",
+            "Decision-support workflows"
+          ]
+        },
+        {
+          "title": "Strategic UI/UX",
+          "descriptionPrimary": "Interface design is treated as architecture: how users move, how information is framed, and how confidence is built at each step.",
+          "descriptionSecondary": "We combine brand sensitivity with technical realism so design systems, prototypes, and shipped interfaces stay aligned from concept through launch.",
+          "subservices": [
+            "Experience mapping and user flows",
+            "Wireframes and interaction systems",
+            "Design systems and UI governance",
+            "High-fidelity product interfaces"
+          ]
+        },
+        {
+          "title": "Digital ecosystem architecture",
+          "descriptionPrimary": "When companies outgrow isolated tools, we design a clearer operating model where systems, infrastructure, and data behave as one environment.",
+          "descriptionSecondary": "That means defining ownership, integration logic, technical priorities, and future-ready foundations before complexity starts compounding.",
+          "subservices": [
+            "System audits and ecosystem diagnosis",
+            "Infrastructure and stack definition",
+            "Data flow and integration planning",
+            "Roadmaps for scalable digital operations"
+          ]
         }
       ]
     },
@@ -507,10 +574,21 @@
     "companyLabel": "Web Star Studio",
     "statement": "Sophisticated digital systems for companies that need more intelligence, clarity, and consistency in the way they grow.",
     "newsletter": "Follow Webstar across social and editorial channels to receive our weekly insights.",
+    "cta": {
+      "line1": "Let's",
+      "line2": "build",
+      "line3": "together.",
+      "button": "Start a conversation"
+    },
     "address_label": "Addresses",
     "contact_label": "Institutional",
     "socialLabel": "Social",
     "legalLabel": "Explore",
+    "contactCard": {
+      "title": "Contact Info"
+    },
+    "careersCopy": "Join our team and help design ambitious digital systems with clarity and craft.",
+    "careersLink": "Explore careers",
     "email": "hello@webstar.studio",
     "legalName": "Web Star Studio Desenvolvimento de Software LTDA",
     "cnpj": "CNPJ 57.717.768/0001-06",

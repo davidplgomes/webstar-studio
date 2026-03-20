@@ -22,7 +22,7 @@ export default function SiteShell({ children, withBackground = true, withCursor 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-transparent selection:bg-neon-lime selection:text-black">
+    <main className="relative min-h-screen bg-transparent selection:bg-neon-lime selection:text-black">
       <div className="relative z-[9999]">
         <Header isMenuOpen={isMenuOpen} onMenuClick={() => setIsMenuOpen((prev) => !prev)} />
         <Navigation isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
